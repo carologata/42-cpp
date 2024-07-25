@@ -47,9 +47,5 @@ int main(void)
     contact8.setName("Carlos");
     bookList.addContact(contact8);
 
-    contact9.setPhone(988101422);
-    contact9.setName("Leo");
-    bookList.addContact(contact9);
-
     bookList.listContacts();
 }
