@@ -2,24 +2,24 @@
 #define PHONEBOOK_CLASS_H
 
 #include "Contact.class.hpp"
-#include <cstddef>
 #include <iostream>
+#include <cstddef>
 
 class PhoneBook {
 
+private:
+
+    int contactsQty;
+    Contact contacts[8];
+
 public:
 
-    size_t contactsNbr;
-    
     PhoneBook(void);
     ~PhoneBook(void);
 
-    void addContact(Contact contact);
-    void listContacts(void);
-
-private:
-
-    Contact contacts[8];
+    void add(void);
+    void search(size_t index) const;
+    void exit(void) const;
 
 };
 
