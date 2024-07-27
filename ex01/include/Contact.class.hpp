@@ -2,7 +2,6 @@
 #define CONTACT_CLASS_H
 
 #include <iostream>
-#include <cstddef>
 #include <string>
 
 class Contact {

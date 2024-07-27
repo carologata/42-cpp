@@ -10,11 +10,16 @@ int main(void)
     while(1) 
     {
         std::cout << "Enter one of three commands (ADD, SEARCH or EXIT): ";
-        std::cin >> command;
-        std::cout << std::endl;
+        getline(std::cin, command);
 
         if(command == "ADD")
             bookList.add();
+        else if(command == "SEARCH")
+            bookList.search();
+        else if(command == "EXIT")
+            break;
+        else 
+            std::cout << "Invalid command. Please, write it again." << std::endl;
     }
-
+    return (0);
 }
