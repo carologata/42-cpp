@@ -1,9 +1,9 @@
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -g3 -std=c++98 -I include/
+CFLAGS	=	-Wall -Werror -Wextra -g3 -w -std=c++98 -I include/
 
-NAME	=	phonebook
+NAME	=	account
 
-SRCS	=	src/Contact.cpp src/PhoneBook.cpp src/main.cpp
+SRCS	=	src/Account.cpp src/tests.cpp
 OBJ	=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)
@@ -11,7 +11,7 @@ INC		=	$(wildcard include/*.hpp)
 all: $(OBJ) $(NAME)
 
 $(NAME): $(OBJS)
-	@echo [$(NAME) executable created successfully...]
+	@echo [$(NAME) executable created successfully.]
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJ)/%.o: src/%.cpp $(INC)

@@ -11,7 +11,7 @@ INC		=	$(wildcard *.hpp)
 all: $(OBJ) $(NAME)
 
 $(NAME): $(OBJS)
-	@echo [$(NAME) executable created successfully...]
+	@echo [$(NAME) executable created successfully.]
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJ)/%.o: src/%.cpp $(INC)
