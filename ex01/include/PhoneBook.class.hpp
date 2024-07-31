@@ -2,21 +2,15 @@
 #define PHONEBOOK_CLASS_H
 
 #include "Contact.class.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 #include <ios>
-#include <cstdlib>
 
 class PhoneBook {
 
-private:
-
-    Contact contacts[8];
-
 public:
 
-    int contactsQty;
-    
     PhoneBook(void);
     ~PhoneBook(void);
 
@@ -26,6 +20,11 @@ public:
 
     void printContactsList(void) const;
     void printSpecificContact(int index) const;
+
+private:
+
+    Contact contacts[8];
+    int contactsQty;
 
 };
 

@@ -28,11 +28,8 @@ bool checkIfStrIsValid(std::string input)
 
 std::string readInput(std::string output, bool isNbr)
 {
-    bool isValid;
-    std::string input;
-
-    isValid = false;
-    input = "";
+    bool isValid        = false;
+    std::string input   = "";
 
     while(!isValid)
     {
@@ -51,7 +48,7 @@ std::string readInput(std::string output, bool isNbr)
 
 void PhoneBook::add(void) {
 
-    Contact contact;
+    Contact     contact;
     std::string input;
 
     input = readInput("First name: ", false);
@@ -78,13 +75,13 @@ void PhoneBook::add(void) {
     {
         contacts[contactsQty - 1] = contact;
     }
+
+    std::cout << "Contact added." << std::endl;
 }
 
 bool checkIfIndexIsValid(std::string input, int contactsQty) {
 
-    int index;
-
-    index = -1;
+    int index = -1;
 
     if(input.length() != 1)
         return (false);
@@ -92,7 +89,7 @@ bool checkIfIndexIsValid(std::string input, int contactsQty) {
         return (false);
     
     index = atoi(input.c_str());
-    if(index < contactsQty && index < 8)
+    if(index >= 0 && index < contactsQty && index < 8)
         return (true);
     return (false);    
 }
@@ -148,11 +145,8 @@ void PhoneBook::printSpecificContact(int index) const {
 void PhoneBook::search(void) const {
 
     int index;
-    bool isValid;
-    std::string input;
-
-    isValid = false;
-    input = "";
+    bool isValid      = false;
+    std::string input = "";
 
     if(contactsQty == 0)
     {
@@ -174,7 +168,7 @@ void PhoneBook::search(void) const {
         }
         else
         {
-            std::cout << "Invalid input. Please, write it again." << std::endl;
+            std::cout << "Invalid index. Please, write it again." << std::endl;
         } 
     }
 }
