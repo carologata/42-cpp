@@ -150,13 +150,8 @@ void PhoneBook::search(void) const {
 
     while(!isValid)
     {
-        if(std::cin.eof())
-            break ;
         std::cout << "Enter the index: ";
         std::getline(std::cin, input);
-
-        if(std::cin.eof())
-            break ;
 
         isValid = checkIfIndexIsValid(input, contactsQty);
         if(isValid)
