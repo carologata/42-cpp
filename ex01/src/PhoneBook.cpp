@@ -35,6 +35,7 @@ std::string readInput(std::string output, bool isNbr)
     {
         std::cout << output;
         std::getline(std::cin, input); 
+
         if(isNbr)  
             isValid = checkIfNbrIsValid(input);
         else 
@@ -73,7 +74,8 @@ void PhoneBook::add(void) {
     }
     else
     {
-        contacts[contactsQty - 1] = contact;
+        contacts[contactsQty % 8] = contact;
+        contactsQty++;
     }
 
     std::cout << "Contact added." << std::endl;
@@ -125,21 +127,12 @@ void PhoneBook::printContactsList(void) const {
 
 void PhoneBook::printSpecificContact(int index) const {
 
-    std::cout << std::right << std::setw(10) << "Index";
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << "First Name";
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << "Last Name";
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << "Nickname" << std::endl;
-
-    std::cout << std::right << std::setw(10) << index;
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << truncate(contacts[index].getFirstName());
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << truncate(contacts[index].getLastName());
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << truncate(contacts[index].getNickName()) << std::endl;  
+    std::cout << "Index: " << index << std::endl;
+    std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
+    std::cout << "Last Name: " << contacts[index].getLastName() << std::endl;
+    std::cout << "Nickname: " << contacts[index].getNickName() << std::endl;
+    std::cout << "Nickname: " << contacts[index].getPhoneNumber() << std::endl;
+    std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
 }
 
 void PhoneBook::search(void) const {
@@ -157,8 +150,13 @@ void PhoneBook::search(void) const {
 
     while(!isValid)
     {
+        if(std::cin.eof())
+            break ;
         std::cout << "Enter the index: ";
         std::getline(std::cin, input);
+
+        if(std::cin.eof())
+            break ;
 
         isValid = checkIfIndexIsValid(input, contactsQty);
         if(isValid)
