@@ -1,7 +1,6 @@
 #include "Contact.class.hpp"
 #include "PhoneBook.class.hpp"
 
-#include <cstdio>
 int main(void)
 {
     PhoneBook bookList;
