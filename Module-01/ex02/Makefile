@@ -1,12 +1,11 @@
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 
 
-NAME	=	zombie
+NAME	=	reference
 
-SRCS	=	src/Zombie.cpp src/newZombie.cpp src/randomChump.cpp src/main.cpp
+SRCS	=	src/main.cpp
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
-INC		=	$(wildcard include/*.hpp)
 
 all: $(OBJ) $(NAME)
 
@@ -14,7 +13,7 @@ $(NAME): $(OBJS)
 	@echo [$(NAME) executable created successfully.]
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
 
-$(OBJ)/%.o: src/%.cpp $(INC)
+$(OBJ)/%.o: src/%.cpp
 	@echo [Compiling]$(notdir $(<))...
 	$(CC) $(CFLAGS) -c $< -o $@
 

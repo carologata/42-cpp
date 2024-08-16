@@ -1,9 +1,9 @@
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
 
-NAME	=	zombie
+NAME	=	weapon
 
-SRCS	=	src/Zombie.cpp src/newZombie.cpp src/randomChump.cpp src/main.cpp
+SRCS	=	src/HumanA.cpp src/HumanB.cpp src/Weapon.cpp src/main.cpp
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)
