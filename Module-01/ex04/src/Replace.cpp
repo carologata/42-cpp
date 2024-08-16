@@ -9,30 +9,38 @@ Replace::Replace(std::string filename, std::string strToSearch, std::string strT
 
 Replace::~Replace(void) {}
 
-bool Replace::validateInputs() {
+void Replace::replaceStrings() {
+
+    std::string line, content;
 
     if(strToSearch.empty() || strToReplace.empty())
     {
         std::cout << "Error: empty input." << std::endl;
-        return false;
     }            
     std::ifstream ifs(filename.c_str());
     if(!ifs)
     {
         std::cout << "Error: can not open the file " << filename << std::endl;
-        return false;
     }    
+    
+    while(std::getline(ifs, line))
+        content += line + '\n';
+    ifs.close();
+
+    size_t pos = 0;
+    while((pos = content.find(strToSearch, pos)) != std::string::npos)
+    {
+        content.erase(pos, strToSearch.length());
+        content.insert(pos, strToReplace);
+        pos += strToReplace.length();
+    }
+
     std::string outFilename = filename + ".replace";
     std::ofstream ofs(outFilename.c_str());
     if(!ofs)
     {
         std::cout << "Error: can not open the file " << outFilename << std::endl;
-        return false;
     }
-    return true;
-}
-
-void Replace::replaceStrings() {
-
-    
+    ofs << content;
+    ofs.close();
 }

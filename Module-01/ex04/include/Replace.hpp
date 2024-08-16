@@ -12,7 +12,6 @@ public:
     Replace(std::string filename, std::string strToSearch, std::string strToReplace);
     ~Replace(void);
 
-    bool    validateInputs();
     void    replaceStrings();
 
 private:
