@@ -67,16 +67,8 @@ void PhoneBook::add(void) {
     input = readInput("Darkest secret: ", false);
     contact.setDarkestSecret(input);
     
-    if(contactsQty < 8)
-    {
-        contacts[contactsQty] = contact;
-        contactsQty++;
-    }
-    else
-    {
-        contacts[contactsQty % 8] = contact;
-        contactsQty++;
-    }
+    contacts[contactsQty % 8] = contact;
+    contactsQty++;
 
     std::cout << "Contact added." << std::endl;
 }
