@@ -19,6 +19,13 @@ private:
     void    warning(void);
     void    error(void);
     
+    typedef void (Harl::*functionPtr)(void);
+    
+    functionPtr functions[4];
+    std::string levels[4];
+
 };
+
+
 
 #endif
