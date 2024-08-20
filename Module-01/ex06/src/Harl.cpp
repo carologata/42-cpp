@@ -16,34 +16,34 @@ Harl::Harl(void) {
 
 Harl::~Harl(void) {}
 
-void Harl::filterComplain(std::string level) {
+int Harl::getLevelIndex(std::string level) {
 
-    int i = 0;
-    int startLevel;
-
-    while(i < 4)
+    for(size_t i = 0; i < 4; i++)
     {
         if(level == levels[i])
-        {
-            startLevel = i;
-            break ;
-        }
+            return (i);
     }
+    return (-1);
+}
+
+void Harl::filterComplain(std::string level) {
+
+    int startLevel = getLevelIndex(level);
     switch (startLevel)
     {
-    case DEBUG:
-        (this->*functions[startLevel])();
-        startLevel++;
-    case INFO:
-        (this->*functions[startLevel])();
-        startLevel++;
-    case WARNING:
-        (this->*functions[startLevel])();
-        startLevel++;
-    case ERROR:
-        (this->*functions[startLevel])();
-    default:
-        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+        case DEBUG:
+            (this->*functions[startLevel])();
+            startLevel++;
+        case INFO:
+            (this->*functions[startLevel])();
+            startLevel++;
+        case WARNING:
+            (this->*functions[startLevel])();
+            startLevel++;
+        case ERROR:
+            (this->*functions[startLevel])();
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 
 }

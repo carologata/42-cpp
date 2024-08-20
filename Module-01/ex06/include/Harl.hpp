@@ -10,7 +10,8 @@ public:
     Harl(void);
     ~Harl(void);
     
-    void filterComplain(std::string level);
+    int     getLevelIndex(std::string level);
+    void    filterComplain(std::string level);
 
 private:
 
