@@ -23,6 +23,13 @@ private:
     
     functionPtr functions[4];
     std::string levels[4];
+
+    enum level {
+        DEBUG,
+        INFO, 
+        WARNING,
+        ERROR
+    };
 };
 
 #endif
