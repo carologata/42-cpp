@@ -32,20 +32,17 @@ void Harl::filterComplain(std::string level) {
     switch (startLevel)
     {
         case DEBUG:
-            (this->*functions[startLevel])();
-            startLevel++;
+            (this->*functions[startLevel++])();
         case INFO:
-            (this->*functions[startLevel])();
-            startLevel++;
+            (this->*functions[startLevel++])();
         case WARNING:
-            (this->*functions[startLevel])();
-            startLevel++;
+            (this->*functions[startLevel++])();
         case ERROR:
             (this->*functions[startLevel])();
+            break;
         default:
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
-
 }
 
 void Harl::debug(void) {

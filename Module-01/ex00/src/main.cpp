@@ -1,6 +1,7 @@
 #include "Zombie.hpp"
 
 int main(void) {
+    
     std::cout << "*** HEAP ***" << std::endl;
     std::cout << "*** Calling newZombie function: ***" << std::endl;
     Zombie *heapZombie = newZombie("Hellen");

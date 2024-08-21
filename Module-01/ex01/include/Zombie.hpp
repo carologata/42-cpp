@@ -12,12 +12,12 @@ public:
     Zombie(std::string name);
     ~Zombie(void);
 
-    void    announce(void);
+    void    announce(void) const;
     void    setName(std::string name);
 
 private:
 
-    std::string name;
+    std::string _name;
 
 };
 

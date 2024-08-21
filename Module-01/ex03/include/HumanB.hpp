@@ -13,7 +13,7 @@ public:
     ~HumanB(void);
 
     void setWeapon(Weapon &weaponB);
-    void attack(void);
+    void attack(void) const;
 
 private:
 

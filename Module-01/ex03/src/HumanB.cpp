@@ -13,7 +13,7 @@ void HumanB::setWeapon(Weapon &weaponB) {
     _weaponB = &weaponB;
 }
 
-void HumanB::attack(void) {
+void HumanB::attack(void) const {
 
     if(_weaponB == NULL)
         std::cout << _name << " has no weapon to attack" << std::endl;

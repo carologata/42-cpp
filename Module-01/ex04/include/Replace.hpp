@@ -13,12 +13,13 @@ public:
     ~Replace(void);
 
     void    replaceStrings();
+    bool    checkEmptyInput();
 
 private:
 
-    std::string filename;
-    std::string strToSearch;
-    std::string strToReplace;
+    std::string _filename;
+    std::string _strToSearch;
+    std::string _strToReplace;
 
 };
 

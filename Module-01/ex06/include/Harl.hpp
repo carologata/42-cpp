@@ -25,7 +25,7 @@ private:
     functionPtr functions[4];
     std::string levels[4];
 
-    enum level {
+    enum e_level {
         DEBUG,
         INFO, 
         WARNING,

@@ -2,44 +2,50 @@
 
 Replace::Replace(std::string filename, std::string strToSearch, std::string strToReplace) {
 
-    this->filename      = filename;
-    this->strToSearch   = strToSearch;
-    this->strToReplace  = strToReplace;
+    _filename      = filename;
+    _strToSearch   = strToSearch;
+    _strToReplace  = strToReplace;
 }
 
 Replace::~Replace(void) {}
 
-void Replace::replaceStrings() {
+bool Replace::checkEmptyInput() {
 
-    std::string line, content;
-
-    if(strToSearch.empty() || strToReplace.empty())
+    if(_filename.empty() || _strToSearch.empty() || _strToReplace.empty())
     {
         std::cout << "Error: empty input." << std::endl;
-    }            
-    std::ifstream ifs(filename.c_str());
+        return (1);
+    }
+    return (0);       
+}
+
+void Replace::replaceStrings() {
+
+    if(checkEmptyInput())
+        return ;
+    std::ifstream ifs(_filename.c_str());
     if(!ifs)
     {
-        std::cout << "Error: can not open the file " << filename << std::endl;
+        std::cout << "Error: can not open the file " << _filename << std::endl;
+        return ;
     }    
-    
+    std::string line, content;
     while(std::getline(ifs, line))
         content += line + '\n';
     ifs.close();
-
     size_t pos = 0;
-    while((pos = content.find(strToSearch, pos)) != std::string::npos)
+    while((pos = content.find(_strToSearch, pos)) != std::string::npos)
     {
-        content.erase(pos, strToSearch.length());
-        content.insert(pos, strToReplace);
-        pos += strToReplace.length();
+        content.erase(pos, _strToSearch.length());
+        content.insert(pos, _strToReplace);
+        pos += _strToReplace.length();
     }
-
-    std::string outFilename = filename + ".replace";
+    std::string outFilename = _filename + ".replace";
     std::ofstream ofs(outFilename.c_str());
     if(!ofs)
     {
         std::cout << "Error: can not open the file " << outFilename << std::endl;
+        return ;
     }
     ofs << content;
     ofs.close();
