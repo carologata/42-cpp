@@ -46,7 +46,6 @@ Fixed& Fixed::operator=(const Fixed& copy) {
 
 int Fixed::getRawBits(void) const {
 
-    std::cout << "getRawBits member function called" << std::endl;
     return (fixedPointNum);
 }
 
@@ -57,7 +56,8 @@ void Fixed::setRawBits(int const raw) {
 
 float Fixed::toFloat(void) const {
     
-    return ((float)(fixedPointNum / (1 << fractionalBits)));
+    float floatNum = (float)fixedPointNum / (1 << fractionalBits);
+    return (floatNum);
 }
 
 int Fixed::toInt(void) const {
