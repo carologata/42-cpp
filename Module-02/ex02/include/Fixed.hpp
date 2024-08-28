@@ -29,10 +29,10 @@ public:
     bool            operator==(const Fixed& compareObj);
     bool            operator!=(const Fixed& compareObj);
 
-    Fixed&          operator+(const Fixed& arithmeticObj);
-    Fixed&          operator-(const Fixed& arithmeticObj);
-    Fixed&          operator*(const Fixed& arithmeticObj);
-    Fixed&          operator/(const Fixed& arithmeticObj);
+    Fixed           operator+(const Fixed& arithmeticObj);
+    Fixed           operator-(const Fixed& arithmeticObj);
+    Fixed           operator*(const Fixed& arithmeticObj);
+    Fixed           operator/(const Fixed& arithmeticObj);
 
     Fixed&          operator++(void);
     Fixed           operator++(int);

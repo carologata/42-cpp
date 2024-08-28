@@ -1,9 +1,9 @@
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
+CFLAGS	=	-Wall -Werror -Wextra -g3 -std=c++98 -I include/
 
-NAME	=	fixed
+NAME	=	scavTrap
 
-SRCS	=	src/Fixed.cpp src/main.cpp
+SRCS	=	src/ClapTrap.cpp src/ScavTrap.cpp src/main.cpp
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)

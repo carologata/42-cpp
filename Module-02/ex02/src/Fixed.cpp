@@ -92,28 +92,24 @@ bool Fixed::operator!=(const Fixed& compareObj) {
     return (this->fixedPointNum != compareObj.getRawBits());
 }
 
-Fixed& Fixed::operator+(const Fixed& arithmeticObj) {
+Fixed Fixed::operator+(const Fixed& arithmeticObj) {
 
-    this->fixedPointNum += arithmeticObj.getRawBits();
-    return (*this);
+    return (this->toFloat() + arithmeticObj.toFloat());
 }
 
-Fixed& Fixed::operator-(const Fixed& arithmeticObj) {
+Fixed Fixed::operator-(const Fixed& arithmeticObj) {
 
-    this->fixedPointNum -= arithmeticObj.getRawBits();
-    return (*this);
+    return (this->toFloat() - arithmeticObj.toFloat());
 }
 
-Fixed& Fixed::operator*(const Fixed& arithmeticObj) {
+Fixed Fixed::operator*(const Fixed& arithmeticObj) {
 
-    this->fixedPointNum *= arithmeticObj.getRawBits();
-    return (*this);
+    return (this->toFloat() * arithmeticObj.toFloat());
 }
 
-Fixed& Fixed::operator/(const Fixed& arithmeticObj) {
+Fixed Fixed::operator/(const Fixed& arithmeticObj) {
 
-    this->fixedPointNum /= arithmeticObj.getRawBits();
-    return (*this);
+    return (this->toFloat() / arithmeticObj.toFloat());
 }
 
 
