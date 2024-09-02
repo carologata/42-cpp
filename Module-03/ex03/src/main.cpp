@@ -12,6 +12,7 @@ int main(void) {
     std::cout << "Attack Damage Points: " << diamondEleven.getAttackDamage() << std::endl;
     diamondEleven.setAttackDamage(5);
     diamondEleven.attack("Demogorgon");
+    diamondEleven.whoAmI();
     diamondEleven.takeDamage(15);
     std::cout << "After attack: " << std::endl;
     std::cout << "Hit Points: " << diamondEleven.getHitPoints() << std::endl;

@@ -9,9 +9,9 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Frag
 
     std::cout << "DiamondTrap " << _name << " constructor called." << std::endl;
 
-    _hitPoints    = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
+    FragTrap::_hitPoints    = 100;
+    ScavTrap::_energyPoints = 50;
+    FragTrap::_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy) {
