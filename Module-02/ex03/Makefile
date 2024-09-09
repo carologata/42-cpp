@@ -3,7 +3,7 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
 
 NAME	=	fixed
 
-SRCS	=	src/Fixed.cpp src/main.cpp
+SRCS	=	src/Fixed.cpp src/Point.cpp src/bsp.cpp src/main.cpp
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)
