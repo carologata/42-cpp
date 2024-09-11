@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "../include/Fixed.hpp"
 
 const int Fixed::fractionalBits = 8;
 
@@ -111,6 +111,7 @@ Fixed Fixed::operator/(const Fixed& arithmeticObj) {
 
     return (this->toFloat() / arithmeticObj.toFloat());
 }
+
 
 /* Pre-increment */
 Fixed& Fixed::operator++(void) {
