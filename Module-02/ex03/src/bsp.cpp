@@ -1,7 +1,6 @@
-#include "../include/Fixed.hpp"
 #include "../include/Point.hpp"
 
-bool isOnSameSide(Point& const pointA, Point& const pointB, Point& const pointC, Point& const pointP) {
+bool isOnSameSide(const Point &pointA, const Point &pointB, const Point &pointC, const Point &pointP) {
 
     float pointABx = pointB.getFloatX() - pointA.getFloatX();  
     float pointABy = pointB.getFloatY() - pointA.getFloatY();  
@@ -15,6 +14,8 @@ bool isOnSameSide(Point& const pointA, Point& const pointB, Point& const pointC,
     float crossProductABandAC = (pointABx * pointACy) - (pointABy * pointACx);
     float crossProductABandAP = (pointABx * pointAPy) - (pointABy * pointAPx);
     
+    if(roundf(crossProductABandAP) == 0)
+        return (false);
     return (crossProductABandAC * crossProductABandAP >= 0);
 }
 

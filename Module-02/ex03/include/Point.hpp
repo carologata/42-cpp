@@ -1,7 +1,7 @@
-#ifndef POINT_H
-#define POINT_H
+#ifndef POINT_HPP
+#define POINT_HPP
 
-#include "./Fixed.hpp"
+#include "Fixed.hpp"
 
 class Point {
 
@@ -13,20 +13,19 @@ public:
     Point& operator=(const Point& copy);
     ~Point(void);
 
-    int     getFixedX(void);
-    int     getFixedY(void);
+    int     getFixedX(void) const;
+    int     getFixedY(void) const;
     
-    float   getFloatX(void);
-    float   getFloatY(void);
+    float   getFloatX(void) const;
+    float   getFloatY(void) const;
 
 
 private:
 
     Fixed _x;
     Fixed _y;
-
 };
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

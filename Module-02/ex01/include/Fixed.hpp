@@ -1,5 +1,5 @@
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 #include <string>
@@ -24,8 +24,8 @@ public:
 
 private:
 
-    int              fixedPointNum;
-    static const int fractionalBits;
+    int              _fixedPointNum;
+    static const int _fractionalBits;
 };
 
 std::ostream& operator<<(std::ostream& COUT, const Fixed& fixed);

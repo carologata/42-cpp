@@ -1,7 +1,7 @@
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
 
-NAME	=	fixed
+NAME	=	bsp
 
 SRCS	=	src/Fixed.cpp src/Point.cpp src/bsp.cpp src/main.cpp
 OBJ		=	./obj

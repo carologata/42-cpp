@@ -14,22 +14,22 @@ Point& Point::operator=(const Point& copy) {
 
 Point::~Point(void) {}
 
-int Point::getFixedX(void) {
+int Point::getFixedX(void) const {
 
     return (_x.getRawBits());
 }
 
-int Point::getFixedY(void) {
+int Point::getFixedY(void) const {
 
     return (_y.getRawBits());
 }
 
-float Point::getFloatX(void) {
+float Point::getFloatX(void) const {
     
     return (_x.toFloat());
 }
 
-float Point::getFloatX(void) {
+float Point::getFloatY(void) const {
     
-    return (_x.toFloat());
+    return (_y.toFloat());
 }

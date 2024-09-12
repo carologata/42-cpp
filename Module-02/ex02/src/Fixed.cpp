@@ -1,8 +1,8 @@
-#include "Fixed.hpp"
+#include "../include/Fixed.hpp"
 
-const int Fixed::fractionalBits = 8;
+const int Fixed::_fractionalBits = 8;
 
-Fixed::Fixed(void) : fixedPointNum(0) {
+Fixed::Fixed(void) : _fixedPointNum(0) {
 
     std::cout << "Default constructor called" << std::endl;
 }
@@ -10,13 +10,13 @@ Fixed::Fixed(void) : fixedPointNum(0) {
 Fixed::Fixed(const int intNum) {
 
     std::cout << "Int constructor called" << std::endl;
-    fixedPointNum = intNum << fractionalBits;
+    _fixedPointNum = intNum << _fractionalBits;
 }
 
 Fixed::Fixed(const float floatNum) { 
 
     std::cout << "Float constructor called" << std::endl;
-    fixedPointNum = (roundf(floatNum * (1 << fractionalBits)));
+    _fixedPointNum = (roundf(floatNum * (1 << _fractionalBits)));
 }
 
 Fixed::~Fixed(void) {
@@ -36,60 +36,60 @@ Fixed& Fixed::operator=(const Fixed& copy) {
     std::cout << "Copy assignment operator called" << std::endl;
 
     if(this != &copy)
-        fixedPointNum = copy.getRawBits();
+        _fixedPointNum = copy.getRawBits();
 
     return (*this);
 }
 
 int Fixed::getRawBits(void) const {
 
-    return (fixedPointNum);
+    return (_fixedPointNum);
 }
 
 void Fixed::setRawBits(int const raw) {
 
-    fixedPointNum = raw;
+    _fixedPointNum = raw;
 }
 
 float Fixed::toFloat(void) const {
     
-    float floatNum = (float)fixedPointNum / (1 << fractionalBits);
+    float floatNum = (float)_fixedPointNum / (1 << _fractionalBits);
     return (floatNum);
 }
 
 int Fixed::toInt(void) const {
 
-    return (fixedPointNum >> fractionalBits);
+    return (_fixedPointNum >> _fractionalBits);
 }
 
 bool Fixed::operator>(const Fixed &compareObj) {
     
-    return (this->fixedPointNum > compareObj.getRawBits());
+    return (this->_fixedPointNum > compareObj.getRawBits());
 }
 
 bool Fixed::operator<(const Fixed& compareObj) {
 
-    return (this->fixedPointNum < compareObj.getRawBits());
+    return (this->_fixedPointNum < compareObj.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed& compareObj) {
 
-    return (this->fixedPointNum >= compareObj.getRawBits());
+    return (this->_fixedPointNum >= compareObj.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed& compareObj) {
 
-    return (this->fixedPointNum <= compareObj.getRawBits());
+    return (this->_fixedPointNum <= compareObj.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed& compareObj) {
 
-    return (this->fixedPointNum == compareObj.getRawBits());
+    return (this->_fixedPointNum == compareObj.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed& compareObj) {
 
-    return (this->fixedPointNum != compareObj.getRawBits());
+    return (this->_fixedPointNum != compareObj.getRawBits());
 }
 
 Fixed Fixed::operator+(const Fixed& arithmeticObj) {
@@ -116,7 +116,7 @@ Fixed Fixed::operator/(const Fixed& arithmeticObj) {
 /* Pre-increment */
 Fixed& Fixed::operator++(void) {
     
-    this->fixedPointNum++;
+    this->_fixedPointNum++;
     return (*this);
 }
 
@@ -130,20 +130,20 @@ the increment, and that value will no longer exist after the operation if return
 Fixed Fixed::operator++(int) {
     
     Fixed tmp = *this;
-    this->fixedPointNum++;
+    this->_fixedPointNum++;
     return (tmp);   
 }
 
 Fixed& Fixed::operator--(void) {
     
-    this->fixedPointNum--;
+    this->_fixedPointNum--;
     return (*this);
 }
 
 Fixed Fixed::operator--(int) {
     
     Fixed tmp = *this;
-    this->fixedPointNum--;
+    this->_fixedPointNum--;
     return (tmp);   
 }
 
