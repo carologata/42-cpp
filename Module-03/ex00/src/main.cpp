@@ -1,58 +1,80 @@
-#include "ClapTrap.hpp"
+#include "../include/ClapTrap.hpp"
 
 int main(void) {
 
-    std::cout << "*** ClapTrap Eleven ***" << std::endl;
-    ClapTrap clapEleven;
-    clapEleven.setName("Eleven");
-    clapEleven.setHitPoints(20);
-    clapEleven.setEnergyPoints(20);
-    clapEleven.setAttackDamage(0);
-    std::cout << "Before attack: " << std::endl;
-    std::cout << "Hit Points: " << clapEleven.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapEleven.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << clapEleven.getAttackDamage() << std::endl;
-    clapEleven.attack("Demogorgon");
-    clapEleven.setAttackDamage(2);
-    clapEleven.attack("Demogorgon");
-    clapEleven.takeDamage(5);
-    std::cout << "After attack: " << std::endl;
-    std::cout << "Hit Points: " << clapEleven.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapEleven.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << clapEleven.getAttackDamage() << std::endl;
+
+    std::cout << "*** ClapTrap Blue 🔵 and Green 🟢 ***" << std::endl;
+    std::cout << "*** Default Constructor ***" << std::endl;
+    ClapTrap blue;
+    ClapTrap green;
+    blue.setName("Blue");
+    green.setName("Green");
+    std::cout << "*** Blue Points ***" << std::endl;
+    printPoints(blue);
+    std::cout << "*** Green Points ***" << std::endl;
+    printPoints(blue);
+    std::cout << "*** Blue attacks Green ***" << std::endl;
+    blue.attack("green");
+    std::cout << "*** Set 2 attack damage points for Blue ***" << std::endl;
+    blue.setAttackDamage(2);
+    std::cout << "*** Blue attacks Green***" << std::endl;
+    blue.attack("green");
+    green.takeDamage(blue.getAttackDamage());
+    std::cout << "*** Blue Points ***" << std::endl;
+    printPoints(blue);
+    std::cout << "*** Green Points ***" << std::endl;
+    printPoints(green);
     std::cout << "*** ***" << std::endl;
     std::cout << std::endl;
 
-    std::cout << "*** ClapTrap One ***" << std::endl;
-    ClapTrap clapOne("One");
-    std::cout << "Before attack: " << std::endl;
-    std::cout << "Hit Points: " << clapOne.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapOne.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << clapOne.getAttackDamage() << std::endl;
-    clapOne.setAttackDamage(5);
-    clapOne.attack("Demogorgon");
-    clapOne.takeDamage(15);
-    std::cout << "After attack: " << std::endl;
-    std::cout << "Hit Points: " << clapOne.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapOne.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << clapOne.getAttackDamage() << std::endl;
+
+    std::cout << "*** ClapTrap Yellow 🟡 and Green 🟢 ***" << std::endl;
+    std::cout << "*** Parametrized Constructor ***" << std::endl;
+    ClapTrap yellow("Yellow");
+    std::cout << "*** Set 3 attack damage points for Yellow ***" << std::endl;
+    yellow.setAttackDamage(3);
+    std::cout << "*** Yellow Points ***" << std::endl;
+    printPoints(yellow);
+    std::cout << "*** Green Points ***" << std::endl;
+    printPoints(green);
+    std::cout << "*** Yellow attacks Green until Yellow has no more Enery Points***" << std::endl;
+    while(yellow.getEnergyPoints() > 0)
+    {
+        yellow.attack("green");
+        green.takeDamage(yellow.getAttackDamage());
+    }
+    std::cout << "*** Yellow Points ***" << std::endl;
+    printPoints(yellow);
+    std::cout << "*** Green Points ***" << std::endl;
+    printPoints(green);
     std::cout << "*** ***" << std::endl;
     std::cout << std::endl;
 
-    std::cout << "*** ClapTrap Hopper ***" << std::endl;
-    ClapTrap clapHopper(clapOne);
-    clapHopper.setName("Hopper");
-    std::cout << "Before attack: " << std::endl;
-    std::cout << "Hit Points: " << clapHopper.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapHopper.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << clapHopper.getAttackDamage() << std::endl;
-    clapOne.setAttackDamage(5);
-    clapHopper.attack("Demogorgon");
-    clapHopper.takeDamage(5);
-    std::cout << "After attack: " << std::endl;
-    std::cout << "Hit Points: " << clapHopper.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapHopper.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << clapHopper.getAttackDamage() << std::endl;
+
+    std::cout << "*** ClapTrap Pink 🟣 and Green 🟢 ***" << std::endl;
+    std::cout << "*** Copy Constructor ***" << std::endl;
+    ClapTrap pink(yellow);
+    std::cout << "*** Set 3 attack damage points for Pink ***" << std::endl;
+    pink.setAttackDamage(3);
+    std::cout << "*** Set name Pink for Pink ***" << std::endl;
+    pink.setName("Pink");
+    std::cout << "*** Pink Points ***" << std::endl;
+    printPoints(pink);
+    std::cout << "*** Green Points ***" << std::endl;
+    printPoints(green);
+    std::cout << "*** Pink attacks Green ***" << std::endl;
+    pink.attack("green");
+    std::cout << "*** Set 4 energy points for Pink ***" << std::endl;
+    pink.setEnergyPoints(4);
+    std::cout << "*** Green is repaired ***" << std::endl;
+    green.beRepaired(5);
+    std::cout << "*** Pink attacks Green ***" << std::endl;
+    pink.attack("green");
+    green.takeDamage(pink.getAttackDamage());
+    std::cout << "*** pink Points ***" << std::endl;
+    printPoints(pink);
+    std::cout << "*** Green Points ***" << std::endl;
+    printPoints(green);
     std::cout << "*** ***" << std::endl;
     std::cout << std::endl;
 }

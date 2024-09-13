@@ -120,6 +120,12 @@ Fixed& Fixed::operator++(void) {
     return (*this);
 }
 
+Fixed& Fixed::operator--(void) {
+    
+    this->_fixedPointNum--;
+    return (*this);
+}
+
 /* Pos-increment
 is enough to tell the compiler that this is the post-increment version of operator++, 
 even though the int parameter isn’t used. 
@@ -132,12 +138,6 @@ Fixed Fixed::operator++(int) {
     Fixed tmp = *this;
     this->_fixedPointNum++;
     return (tmp);   
-}
-
-Fixed& Fixed::operator--(void) {
-    
-    this->_fixedPointNum--;
-    return (*this);
 }
 
 Fixed Fixed::operator--(int) {

@@ -1,6 +1,6 @@
 #include "../include/Point.hpp"
 
-bool isOnSameSide(const Point &pointA, const Point &pointB, const Point &pointC, const Point &pointP) {
+bool isOnSameSide(const Point& pointA, const Point& pointB, const Point& pointC, const Point& pointP) {
 
     float pointABx = pointB.getFloatX() - pointA.getFloatX();  
     float pointABy = pointB.getFloatY() - pointA.getFloatY();  

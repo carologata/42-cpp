@@ -1,8 +1,9 @@
-#ifndef CLAP_TRAP_H
-#define CLAP_TRAP_H
+#ifndef CLAP_TRAP_HPP
+#define CLAP_TRAP_HPP
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class ClapTrap {
 
@@ -34,7 +35,8 @@ private:
     int             _hitPoints;
     int             _energyPoints;
     int             _attackDamage;
-
 };
+
+void printPoints(const ClapTrap &claptrap);
 
 #endif

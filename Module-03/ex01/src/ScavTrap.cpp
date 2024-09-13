@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "../include/ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void) {
 
@@ -25,7 +25,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy) {
     std::cout << "ScavTrap: Copy assignment operator called" << std::endl;
 
     if(this != &copy)
-        *this = copy;
+        ClapTrap::operator=(copy);
     return (*this);
 }
 

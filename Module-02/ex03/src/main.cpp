@@ -3,7 +3,7 @@
 
 int main(void) {
     
-    std::cout << "**************** TEST 1 ****************" << std::endl;
+    std::cout << "**************** TRIANGLE 1 ****************" << std::endl;
     std::cout << "\n**************** INSIDE TRIANGLE ****************" << std::endl;
     Point a(-7.48, 1.75);
     Point b(-9, -1);
@@ -32,7 +32,7 @@ int main(void) {
     std::cout << isInsideTriangle << std::endl;
 
 
-    std::cout << "\n\n**************** TEST 2 ****************" << std::endl;
+    std::cout << "\n\n**************** TRIANGLE 2 ****************" << std::endl;
     std::cout << "\n**************** INSIDE TRIANGLE ****************" << std::endl;
     Point e(4.81, 5.58);
     Point f(2.63, 3.31);

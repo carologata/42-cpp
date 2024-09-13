@@ -4,36 +4,36 @@ const int Fixed::fractionalBits = 8;
 
 Fixed::Fixed(void) : fixedPointNum(0) {
 
-    // std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int intNum) {
 
-    // std::cout << "Int constructor called" << std::endl;
+    std::cout << "Int constructor called" << std::endl;
     fixedPointNum = intNum << fractionalBits;
 }
 
 Fixed::Fixed(const float floatNum) { 
 
-    // std::cout << "Float constructor called" << std::endl;
+    std::cout << "Float constructor called" << std::endl;
     fixedPointNum = (roundf(floatNum * (1 << fractionalBits)));
 }
 
 Fixed::~Fixed(void) {
 
-    // std::cout << "Destructor called" << std::endl; 
+    std::cout << "Destructor called" << std::endl; 
 }
 
 Fixed::Fixed(const Fixed& copy) {
     
-    // std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
 
     *this = copy;
 }
 
 Fixed& Fixed::operator=(const Fixed& copy) {
     
-    // std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
 
     if(this != &copy)
         fixedPointNum = copy.getRawBits();
@@ -120,6 +120,12 @@ Fixed& Fixed::operator++(void) {
     return (*this);
 }
 
+Fixed& Fixed::operator--(void) {
+    
+    this->fixedPointNum--;
+    return (*this);
+}
+
 /* Pos-increment
 is enough to tell the compiler that this is the post-increment version of operator++, 
 even though the int parameter isn’t used. 
@@ -132,12 +138,6 @@ Fixed Fixed::operator++(int) {
     Fixed tmp = *this;
     this->fixedPointNum++;
     return (tmp);   
-}
-
-Fixed& Fixed::operator--(void) {
-    
-    this->fixedPointNum--;
-    return (*this);
 }
 
 Fixed Fixed::operator--(int) {

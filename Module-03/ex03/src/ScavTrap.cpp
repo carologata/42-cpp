@@ -55,12 +55,14 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::guardGate(void) {
 
-    if(_hitPoints == 0 || _energyPoints == 0)
+    if(_name.empty() ||_hitPoints == 0 || _energyPoints == 0)
     {
         std::cout << "ScavTrap can not guard gate: ";
-        if(_hitPoints == 0)
+        if(_name.empty())
             std::cout << "No hit points." << std::endl;
-        else
+        else if(_hitPoints == 0)
+            std::cout << "No hit points." << std::endl;
+        else if(_energyPoints == 0)
             std::cout << "No energy points." << std::endl;
         return ;
     }
