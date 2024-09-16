@@ -4,21 +4,40 @@
 
 int main(void) {
 
-    std::cout << "*** ClapTrap Eleven ***" << std::endl;
-    DiamondTrap diamondEleven("Eleven");
-    std::cout << "Before attack: " << std::endl;
-    std::cout << "Hit Points: " << diamondEleven.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << diamondEleven.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << diamondEleven.getAttackDamage() << std::endl;
-    diamondEleven.setAttackDamage(5);
-    diamondEleven.attack("Demogorgon");
-    diamondEleven.whoAmI();
-    diamondEleven.takeDamage(15);
-    std::cout << "After attack: " << std::endl;
-    std::cout << "Hit Points: " << diamondEleven.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << diamondEleven.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage Points: " << diamondEleven.getAttackDamage() << std::endl;
+    std::cout << "*** DiamondTrap Blue 🔵 ***" << std::endl;
+    std::cout << "*** Default Constructor ***" << std::endl;
+    DiamondTrap blue("Blue");
+    std::cout << "*** Blue Points ***" << std::endl;
+    printPoints(blue);
+    std::cout << "*** Blue attacks Something ***" << std::endl;
+    blue.attack("Something");
+    std::cout << "*** Blue says WhoAmI ***" << std::endl;
+    blue.whoAmI();
+    std::cout << "*** Blue Points ***" << std::endl;
+    printPoints(blue);
     std::cout << "*** ***" << std::endl;
     std::cout << std::endl;
 
+    std::cout << "*** DiamondTrap Green 🟢 ***" << std::endl;
+    std::cout << "*** Green 🟢 Copy Constructor from Blue 🔵 ***" << std::endl;
+    DiamondTrap green(blue);
+    std::cout << "*** Green 🟢 name: ***" << std::endl;
+    std::cout << green.getName() << std::endl;
+    std::cout << "*** Update Green 🟢 name to Green: ***" << std::endl;
+    green.setName("Green");
+    std::cout << green.getName() << std::endl;
+    std::cout << "*** Green 🟢 says WhoAmI ***" << std::endl;
+    green.whoAmI();
+    std::cout << "*** ***" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "*** DiamondTrap Orange 🟡 ***" << std::endl;
+    std::cout << "*** Default Constructor ***" << std::endl;
+    DiamondTrap orange("Orange");
+    std::cout << "*** Orange 🟡 is assigned to Green 🟢 using Assign Operator ***" << std::endl;
+    green = orange;
+    std::cout << "*** Green 🟢 says WhoAmI ***" << std::endl;
+    green.whoAmI();
+    std::cout << "*** ***" << std::endl;
+    std::cout << std::endl;
 }

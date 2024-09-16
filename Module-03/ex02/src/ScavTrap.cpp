@@ -1,6 +1,6 @@
-#include "ScavTrap.hpp"
+#include "../include/ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 
     std::cout << "ScavTrap: Default constructor called." << std::endl;
 }
@@ -14,10 +14,9 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
     _attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& copy) {
+ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy) {
 
     std::cout << "ScavTrap: Copy constructor called" << std::endl;
-    *this = copy;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& copy) {
@@ -25,13 +24,13 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy) {
     std::cout << "ScavTrap: Copy assignment operator called" << std::endl;
 
     if(this != &copy)
-        *this = copy;
+        ClapTrap::operator=(copy);
     return (*this);
 }
 
 ScavTrap::~ScavTrap(void) {
 
-    std::cout << "ScavTrap " << _name << ": Destructor called" << std::endl;
+    std::cout << "ScavTrap " << _name << ": Destructor called" << std::endl; 
 }
 
 void ScavTrap::attack(const std::string& target) {
@@ -55,15 +54,17 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::guardGate(void) {
 
-    if(_hitPoints == 0 || _energyPoints == 0)
+    if(_name.empty() || _hitPoints == 0 || _energyPoints == 0)
     {
         std::cout << "ScavTrap can not guard gate: ";
         if(_hitPoints == 0)
             std::cout << "No hit points." << std::endl;
+        else if(_name.empty())
+            std::cout << "Name not set." << std::endl;
         else
             std::cout << "No energy points." << std::endl;
         return ;
     }
     _energyPoints--;
-    std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+    std::cout << "ScavTrap " << _name << ": is now in Gate keeper mode" << std::endl;
 }

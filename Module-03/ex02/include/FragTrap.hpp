@@ -1,5 +1,5 @@
-#ifndef FLAG_TRAP_H
-#define FLAG_TRAP_H
+#ifndef FLAG_TRAP_HPP
+#define FLAG_TRAP_HP
 
 #include "ClapTrap.hpp"
 #include <string>

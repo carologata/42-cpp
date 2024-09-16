@@ -12,13 +12,13 @@ int main(void) {
     std::cout << "*** Blue Points ***" << std::endl;
     printPoints(blue);
     std::cout << "*** Green Points ***" << std::endl;
-    printPoints(blue);
+    printPoints(green);
     std::cout << "*** Blue attacks Green ***" << std::endl;
-    blue.attack("green");
+    blue.attack("Green");
     std::cout << "*** Set 2 attack damage points for Blue ***" << std::endl;
     blue.setAttackDamage(2);
     std::cout << "*** Blue attacks Green***" << std::endl;
-    blue.attack("green");
+    blue.attack("Green");
     green.takeDamage(blue.getAttackDamage());
     std::cout << "*** Blue Points ***" << std::endl;
     printPoints(blue);
@@ -40,7 +40,7 @@ int main(void) {
     std::cout << "*** Yellow attacks Green until Yellow has no more Enery Points***" << std::endl;
     while(yellow.getEnergyPoints() > 0)
     {
-        yellow.attack("green");
+        yellow.attack("Green");
         green.takeDamage(yellow.getAttackDamage());
     }
     std::cout << "*** Yellow Points ***" << std::endl;
@@ -63,15 +63,15 @@ int main(void) {
     std::cout << "*** Green Points ***" << std::endl;
     printPoints(green);
     std::cout << "*** Pink attacks Green ***" << std::endl;
-    pink.attack("green");
+    pink.attack("Green");
     std::cout << "*** Set 4 energy points for Pink ***" << std::endl;
     pink.setEnergyPoints(4);
     std::cout << "*** Green is repaired ***" << std::endl;
     green.beRepaired(5);
     std::cout << "*** Pink attacks Green ***" << std::endl;
-    pink.attack("green");
+    pink.attack("Green");
     green.takeDamage(pink.getAttackDamage());
-    std::cout << "*** pink Points ***" << std::endl;
+    std::cout << "*** Pink Points ***" << std::endl;
     printPoints(pink);
     std::cout << "*** Green Points ***" << std::endl;
     printPoints(green);
