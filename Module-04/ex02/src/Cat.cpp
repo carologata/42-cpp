@@ -8,7 +8,7 @@ Cat::Cat(void) {
     _brain  = new Brain();
 }
 
-Cat::Cat(const Cat& copy) : Animal() {
+Cat::Cat(const Cat& copy) : AAnimal() {
 
     std::cout << "Cat: Copy Constructor called." << std::endl;
     _brain  = new Brain(*(copy._brain));

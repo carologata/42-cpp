@@ -6,16 +6,16 @@
 
 #define PRINT_BLUE_BOLD(text) std::cout << "\033[1;34m" << text << "\033[0m" << std::endl;
 
-class Animal {
+class AAnimal {
 
 public:
     
-    Animal(void);
-    Animal(const Animal& copy);
-    Animal& operator=(const Animal& copy);
-    virtual ~Animal(void);
+    AAnimal(void);
+    AAnimal(const AAnimal& copy);
+    AAnimal& operator=(const AAnimal& copy);
+    virtual ~AAnimal(void);
 
-    virtual void    makeSound(void) const;
+    virtual void    makeSound(void) const = 0;
     std::string     getType(void) const;
 
 protected:

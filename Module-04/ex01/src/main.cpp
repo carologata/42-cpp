@@ -12,7 +12,6 @@ int main(void) {
     delete j;//should not create a leak
     delete i;
     PRINT_BLUE_BOLD("*** ***");
-    std::cout << std::endl; 
 
     PRINT_BLUE_BOLD("*** Second Subject Test ***")
     Animal *animals[10];
