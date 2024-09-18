@@ -128,20 +128,17 @@ void ClapTrap::setAttackDamage(int attackDamage) {
 
 void printPoints(const ClapTrap &claptrap) {
 
-    if(claptrap.getName().empty())
-        std::cout << "ClapTrap Points: " << std::endl;
-    else
-        std::cout << "ClapTrap " << claptrap.getName() << " Points: " << std::endl;
-    std::cout << std::right << std::setw(10) << "Hit";
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << "Energy";
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << "Attack Damage";
+    std::cout << "Points: " << std::endl;
+    std::cout << std::left << std::setw(10) << "Hit";
+    std::cout << std::left << " | ";
+    std::cout << std::left << std::setw(10) << "Energy";
+    std::cout << std::left << " | ";
+    std::cout << std::left << std::setw(10) << "Attack Damage";
     std::cout << std::endl;
-    std::cout << std::right << std::setw(10) << claptrap.getHitPoints();
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << claptrap.getEnergyPoints();
-    std::cout << std::right << " | ";
-    std::cout << std::right << std::setw(10) << claptrap.getAttackDamage();
+    std::cout << std::left << std::setw(10) << claptrap.getHitPoints();
+    std::cout << std::left << " | ";
+    std::cout << std::left << std::setw(10) << claptrap.getEnergyPoints();
+    std::cout << std::left << " | ";
+    std::cout << std::left << std::setw(10) << claptrap.getAttackDamage();
     std::cout << std::endl << std::endl;
 }

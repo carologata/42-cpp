@@ -1,14 +1,17 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include "../include/ICharacter.hpp"
-#include "../include/AMateria.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+
+#define INVENTORY_SIZE 4
 
 class Character : public ICharacter {
 
 public:
 
     Character(void);
+    Character(std::string name);
     Character(const Character& copy);
     Character& operator=(const Character& copy);
     ~Character(void);
@@ -21,7 +24,7 @@ public:
 private:
 
     std::string     _name;
-    AMateria        *inventory[4];
+    AMateria        *_inventory[INVENTORY_SIZE];
 
 };
 

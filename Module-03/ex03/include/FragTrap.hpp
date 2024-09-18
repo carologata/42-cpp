@@ -1,9 +1,7 @@
-#ifndef FLAG_TRAP_H
-#define FLAG_TRAP_H
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
-#include <string>
-#include <iostream>
 
 class FragTrap : virtual public ClapTrap {
 

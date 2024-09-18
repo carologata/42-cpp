@@ -1,4 +1,5 @@
 #include "../include/FragTrap.hpp"
+#include "../include/ScavTrap.hpp"
 
 int main(void) {
     

@@ -1,4 +1,4 @@
-#include "../include/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void) : ClapTrap() {
 

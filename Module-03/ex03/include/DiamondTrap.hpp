@@ -1,5 +1,5 @@
-#ifndef DIAMOND_TRAP_H
-#define DIAMOND_TRAP_H
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
@@ -15,7 +15,6 @@ public:
     DiamondTrap& operator=(const DiamondTrap& copy);
     ~DiamondTrap(void);
 
-    void            attack(const std::string& target);
     void            whoAmI(void);
 
     std::string     getName(void);
