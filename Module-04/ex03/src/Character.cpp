@@ -1,27 +1,18 @@
 #include "../include/Character.hpp"
 
-Character::Character(void) : _name("") {
+Character::Character(void) : _name(""), _inventory() {
 
     std::cout << "Character: Default Constructor called." << std::endl;
-
-    for(int i = 0; i < INVENTORY_SIZE; i++)
-        _inventory[i] = NULL;
 }
 
-Character::Character(std::string name) : _name(name) {
+Character::Character(std::string name) : _name(name), _inventory() {
 
     std::cout << "Character: Parameterized Constructor called." << std::endl;
-
-    for(int i = 0; i < INVENTORY_SIZE; i++)
-        _inventory[i] = NULL;
 }
 
-Character::Character(const Character& copy) {
+Character::Character(const Character& copy) : _inventory() {
 
     std::cout << "Character: Copy Constructor called." << std::endl;
-
-    for(int i = 0; i < INVENTORY_SIZE; i++)
-        _inventory[i] = NULL;
     *this = copy;
 }
 
@@ -32,8 +23,10 @@ Character& Character::operator=(const Character& copy) {
     if(this != &copy) {
         _name = copy.getName();
         for(int i = 0; i < INVENTORY_SIZE; i++) {
-            if(_inventory[i])
+            if(_inventory[i]) {
                 delete _inventory[i];
+                _inventory[i] = NULL;
+            }
             if(copy._inventory[i])
                 _inventory[i] = copy._inventory[i]->clone(); 
         }

@@ -3,6 +3,10 @@
 DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap(), _name("") {
 
     std::cout << "DiamondTrap: Default constructor called." << std::endl;
+
+    FragTrap::_hitPoints    = 100;
+    ScavTrap::_energyPoints = 50;
+    FragTrap::_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {
@@ -11,8 +15,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 
     FragTrap::_hitPoints    = 100;
     ScavTrap::_energyPoints = 50;
-    FragTrap::_attackDamage = 30;
-    
+    FragTrap::_attackDamage = 30;   
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy) {
@@ -20,12 +23,12 @@ DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(copy), ScavTrap(cop
     _name = copy._name;
     ClapTrap::_name = copy._name + "_clap_name";
 
-    std::cout << "DiamondTrap: Copy constructor called" << std::endl;
+    std::cout << "DiamondTrap: Copy constructor called." << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& copy) {
 
-    std::cout << "DiamondTrap: Copy assignment operator called" << std::endl;
+    std::cout << "DiamondTrap: Copy assignment operator called." << std::endl;
     if(this != &copy)
     {
         ClapTrap::operator=(copy);
@@ -36,7 +39,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& copy) {
 
 DiamondTrap::~DiamondTrap(void) {
 
-    std::cout << "DiamondTrap " << _name << ": Destructor called" << std::endl; 
+    std::cout << "DiamondTrap " << _name << ": Destructor called." << std::endl; 
 }
 
 void DiamondTrap::whoAmI(void) {

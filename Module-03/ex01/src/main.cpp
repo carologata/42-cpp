@@ -2,6 +2,13 @@
 
 int main(void) {
 
+    std::cout << "*** ScavTrap Peach 🍑 ***" << std::endl; 
+    std::cout << "*** Peach 🍑 Default Constructor ***" << std::endl;
+    ScavTrap peach;
+    printPoints(peach);
+    std::cout << "*** ***" << std::endl;
+    std::cout << std::endl;
+
     std::cout << "*** ScavTrap Orange 🍊 and Purple 🍇 ***" << std::endl; 
     std::cout << "*** Orange 🍊 Parametrized Constructor ***" << std::endl;
     ScavTrap orange("Orange");

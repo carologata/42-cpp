@@ -3,6 +3,10 @@
 FragTrap::FragTrap(void) : ClapTrap() {
 
     std::cout << "FragTrap: Default constructor called." << std::endl;
+
+    _hitPoints    = 100;
+    _energyPoints = 100;
+    _attackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
@@ -21,7 +25,7 @@ FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy) {
 
 FragTrap& FragTrap::operator=(const FragTrap& copy) {
 
-    std::cout << "FragTrap: Copy assignment operator called" << std::endl;
+    std::cout << "FragTrap: Copy assignment operator called." << std::endl;
 
     if(this != &copy)
         ClapTrap::operator=(copy);
@@ -30,7 +34,7 @@ FragTrap& FragTrap::operator=(const FragTrap& copy) {
 
 FragTrap::~FragTrap(void) {
 
-    std::cout << "FragTrap " << _name << ": Destructor called" << std::endl; 
+    std::cout << "FragTrap " << _name << ": Destructor called." << std::endl; 
 }
 
 void FragTrap::highFivesGuys(void) {

@@ -23,8 +23,10 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& copy) {
 
     if(this != &copy) {
         for(int i = 0; i < SOURCE_SIZE; i++) {
-            if(_source[i])
+            if(_source[i]) {
                 delete _source[i];
+                _source[i] = NULL;
+            }
             if(copy._source[i])
                 _source[i] = copy._source[i]->clone(); 
         }
@@ -37,13 +39,18 @@ MateriaSource::~MateriaSource(void) {
     std::cout << "MateriaSource: Destructor called." << std::endl;
 
     for(int i = 0; i < SOURCE_SIZE; i++) {
-        if(_source[i])
+        if(_source[i]) {
             delete _source[i];
+            _source[i] = NULL;
+        }
     }
     while (materiaList) {
         t_node *tmp = materiaList; 
-        materiaList = materiaList->next; 
-        delete tmp->memAddress; 
+        materiaList = materiaList->next;
+        if(tmp->memAddress) {
+            delete tmp->memAddress; 
+            tmp->memAddress = NULL;
+        }
         delete tmp; 
     }
 }
@@ -52,10 +59,15 @@ void MateriaSource::learnMateria(AMateria *materia) {
 
     for(int i = 0; i < SOURCE_SIZE; i++) {
         if(_source[i] == NULL && materia != NULL) {
+            addListBack(materia);
             _source[i] = materia->clone(); //Copies the Materia passed as a parameter
             std::cout << "Materia " << materia->getType() << " learned." << std::endl;
             break ;
         }
+    }
+    if(materia) {
+        delete materia;
+        materia = NULL;
     }
 }
 
@@ -76,7 +88,7 @@ t_node *MateriaSource::createNode(AMateria *address) {
 
     t_node *node = new t_node();
     node->memAddress = address;
-    node->next      = NULL;
+    node->next = NULL;
     return (node);
 }
 
@@ -84,13 +96,13 @@ void MateriaSource::addListBack(AMateria *address) {
 
     if(address == NULL)
         return ;
-    
     t_node *node = createNode(address);
     if(materiaList == NULL)
         materiaList = node;
     else {
-        while(materiaList)
-            materiaList = materiaList->next;
-        materiaList = node;
+        t_node *tmp = materiaList;
+        while(tmp->next)
+            tmp = tmp->next;
+        tmp->next = node;
     }   
 }

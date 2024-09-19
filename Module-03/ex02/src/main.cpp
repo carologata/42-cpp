@@ -2,6 +2,13 @@
 #include "../include/ScavTrap.hpp"
 
 int main(void) {
+
+    std::cout << "*** FragTrap Peach 🍑 ***" << std::endl; 
+    std::cout << "*** Peach 🍑 Default Constructor ***" << std::endl;
+    FragTrap peach;
+    printPoints(peach);
+    std::cout << "*** ***" << std::endl;
+    std::cout << std::endl;
     
     std::cout << "*** FragTrap Orange 🍊 and Purple 🍇 ***" << std::endl;
     std::cout << "*** Orange 🍊 Parametrized Constructor ***" << std::endl;

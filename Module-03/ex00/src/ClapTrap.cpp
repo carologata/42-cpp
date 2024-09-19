@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(const ClapTrap& copy) {
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& copy) {
 
-    std::cout << "ClapTrap: Copy assignment operator called" << std::endl;
+    std::cout << "ClapTrap: Copy assignment operator called." << std::endl;
 
     if(this != &copy)
     {
@@ -32,7 +32,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy) {
 
 ClapTrap::~ClapTrap(void) {
 
-    std::cout << "ClapTrap: Destructor called" << std::endl; 
+    std::cout << "ClapTrap: Destructor called." << std::endl; 
 }
 
 void ClapTrap::attack(const std::string& target) {

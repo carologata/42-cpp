@@ -4,6 +4,13 @@
 
 int main(void) {
 
+    std::cout << "*** DiamondTrap Peach 🍑 ***" << std::endl; 
+    std::cout << "*** Peach 🍑 Default Constructor ***" << std::endl;
+    DiamondTrap peach;
+    printPoints(peach);
+    std::cout << "*** ***" << std::endl;
+    std::cout << std::endl;
+
     std::cout << "*** DiamondTrap Blue 🔵 ***" << std::endl;
     std::cout << "*** Default Constructor ***" << std::endl;
     DiamondTrap blue("Blue");
