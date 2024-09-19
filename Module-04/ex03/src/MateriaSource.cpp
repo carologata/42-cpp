@@ -1,19 +1,13 @@
 #include "../include/MateriaSource.hpp"
 
-MateriaSource::MateriaSource(void) : materiaList(NULL) {
+MateriaSource::MateriaSource(void) : _source(), materiaList(NULL) {
 
     std::cout << "MateriaSource: Default Constructor called." << std::endl;
-
-    for(int i = 0; i < SOURCE_SIZE; i++)
-        _source[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& copy) : materiaList(NULL) {
+MateriaSource::MateriaSource(const MateriaSource& copy) : _source(), materiaList(NULL) {
 
     std::cout << "MateriaSource: Copy Constructor called." << std::endl;
-
-    for(int i = 0; i < SOURCE_SIZE; i++)
-        _source[i] = NULL;
     *this = copy;
 }
 
@@ -64,10 +58,10 @@ void MateriaSource::learnMateria(AMateria *materia) {
             std::cout << "Materia " << materia->getType() << " learned." << std::endl;
             break ;
         }
-    }
-    if(materia) {
-        delete materia;
-        materia = NULL;
+        else if(materia != NULL) {
+            delete materia;
+            materia = NULL;
+        }
     }
 }
 
