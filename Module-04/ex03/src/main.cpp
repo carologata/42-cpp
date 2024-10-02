@@ -70,14 +70,14 @@ int main(void) {
     Character cheerBear("CheerBear");
     PRINT_BLUE_BOLD("*** CheerBear equiped with Ice directly (Inventory 0) ***");
     cheerBear.equip(colorSource->createMateria("ice"));
-    PRINT_BLUE_BOLD("*** CheerBear equiped with Cure 1 using tmp (Inventory 1) ***");
+    PRINT_BLUE_BOLD("*** CheerBear equiped with Cure using tmp (Inventory 1) ***");
     AMateria *tmp = colorSource->createMateria("cure");
     cheerBear.equip(tmp);
     PRINT_BLUE_BOLD("");
 
     PRINT_BLUE_BOLD("*** Create character PoliteBear ***");
     ICharacter *politeBear = new Character("PoliteBear");
-    PRINT_BLUE_BOLD("*** CheerBear equiped with Ice 1 directly (Inventory 0) ***");
+    PRINT_BLUE_BOLD("*** CheerBear equiped with Ice directly (Inventory 0) ***");
     politeBear->equip(colorSource->createMateria("ice"));
     PRINT_BLUE_BOLD("*** CheerBear equiped with Ice directly (Inventory 1) ***");
     politeBear->equip(colorSource->createMateria("ice"));
