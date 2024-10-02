@@ -103,7 +103,7 @@ int main(void) {
     cheerBear.use(0, *politeBear);
     PRINT_BLUE_BOLD("");
 
-    PRINT_BLUE_BOLD("*** PoliteBear uses Cure 2 on FriendBear***");
+    PRINT_BLUE_BOLD("*** PoliteBear uses Cure 2 on FriendBear ***");
     politeBear->use(2, friendBear);
     PRINT_BLUE_BOLD("");
 
@@ -113,7 +113,7 @@ int main(void) {
     politeBear->unequip(0);
     PRINT_BLUE_BOLD("");
 
-    PRINT_BLUE_BOLD("*** FriendBear is assigned to PoliteBear ***");
+    PRINT_BLUE_BOLD("*** FriendBear is assigned to PoliteBear to check memory leak ***");
     *politeBear = friendBear;
     PRINT_BLUE_BOLD("");
 
