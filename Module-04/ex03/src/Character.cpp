@@ -50,7 +50,7 @@ void Character::equip(AMateria* m) {
     for(int i = 0; i < INVENTORY_SIZE; i++) {
         if(_inventory[i] == NULL && m != NULL) {
             _inventory[i] = m;
-            std::cout << "Character " << _name << " equiped with materia. " << m->getType() << std::endl;
+            std::cout << "Character " << _name << " equiped with materia " << m->getType() << std::endl;
             return ;
         }
     }
@@ -61,7 +61,7 @@ void Character::unequip(int idx) {
 
     for(int i = 0; i < INVENTORY_SIZE; i++) {
         if(i == idx && _inventory[i]) {
-            std::cout << "Character " << _name << " unequiped with materia. " << _inventory[i]->getType() << std::endl;
+            std::cout << "Character " << _name << " unequiped with materia " << _inventory[i]->getType() << std::endl;
             _inventory[i] = NULL;
             return ;
         }
