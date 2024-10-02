@@ -101,17 +101,21 @@ int main(void) {
     cheerBear.use(0, *politeBear);
     PRINT_BLUE_BOLD("*** CheerBear use Ice 0 (does not have anymore) on PoliteBear ***");
     cheerBear.use(0, *politeBear);
+    PRINT_BLUE_BOLD("");
 
-    PRINT_BLUE_BOLD("*** PoliteBear uses Cure 0 on FriendBear***");
-    politeBear->use(0, friendBear);
+    PRINT_BLUE_BOLD("*** PoliteBear uses Cure 1 on FriendBear***");
+    politeBear->use(1, friendBear);
+    PRINT_BLUE_BOLD("");
 
     PRINT_BLUE_BOLD("*** PoliteBear unequip 0 ***");
     politeBear->unequip(0);
     PRINT_BLUE_BOLD("*** PoliteBear unequip 0 (does not have anymore) ***");
     politeBear->unequip(0);
+    PRINT_BLUE_BOLD("");
 
     PRINT_BLUE_BOLD("*** FriendBear is assigned to PoliteBear ***");
     *politeBear = friendBear;
+    PRINT_BLUE_BOLD("");
 
     PRINT_BLUE_BOLD("*** Delete ***");
     delete colorSource;
