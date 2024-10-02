@@ -6,7 +6,7 @@ Dog::Dog(void) {
     std::cout << "Dog: Default Constructor called." << std::endl;
 }
 
-Dog::Dog(const Dog& copy) : Animal() {
+Dog::Dog(const Dog& copy) : Animal(copy) {
 
     std::cout << "Dog: Copy Constructor called." << std::endl;
     *this = copy;

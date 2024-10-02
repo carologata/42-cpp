@@ -9,7 +9,7 @@ int main(void) {
     PRINT_BLUE_BOLD("*** First Subject Test ***")
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
-    delete j;//should not create a leak
+    delete j;
     delete i;
     PRINT_BLUE_BOLD("*** ***");
 

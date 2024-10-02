@@ -9,7 +9,7 @@ int main(void) {
     PRINT_BLUE_BOLD("*** First Subject Test ***")
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    delete j;//should not create a leak
+    delete j;
     delete i;
     PRINT_BLUE_BOLD("*** ***");
 
@@ -47,30 +47,31 @@ int main(void) {
     myDogBrain->setIdea(0, "I love my owner");
     myDogBrain->setIdea(1, "I love bones");
     myDogBob->setBrain(myDogBrain);
+    PRINT_BLUE_BOLD("*** Delete myDogBrain: already deep copied to myDogBob brain ***");
+    delete myDogBrain;
     PRINT_BLUE_BOLD("*** Check Dog Bob 🐕 Brain first and second idea ***");
     std::cout << myDogBob->getBrain()->getIdea(0) << std::endl;
     std::cout << myDogBob->getBrain()->getIdea(1) << std::endl;
     PRINT_BLUE_BOLD("*** New Dog Jimmy 🦮 Copy from Bob 🐕 ***");
+    //Dog copy constructor is called, but Dog copy assignment is not called in copy constructor
     Dog myDogJimmy = *myDogBob;
-    // Dog *myDogJimmy = myDogBob; //IT DOES NOT WORK IN THE ASSIGN OPERATOR
     PRINT_BLUE_BOLD("*** Check Dog Jimmy 🦮 Brain first and second idea ***");
     std::cout << myDogJimmy.getBrain()->getIdea(0) << std::endl;
     std::cout << myDogJimmy.getBrain()->getIdea(1) << std::endl;
 
     PRINT_BLUE_BOLD("*** Delete ***");
     delete myDogBob;
-    delete myDogBrain;
     PRINT_BLUE_BOLD("*** ***");
     std::cout << std::endl; 
 
-    PRINT_BLUE_BOLD("*** New Dog Tina 🐶🩷  ***");
+    PRINT_BLUE_BOLD("*** New Dog Tina 🐶💖  ***");
     Dog myDogTina;
-    PRINT_BLUE_BOLD("*** Tina 🐶🩷  New Brain ***");
+    PRINT_BLUE_BOLD("*** Tina 🐶💖  New Brain ***");
     Brain *myDogTinaBrain = new Brain();
     myDogTinaBrain->setIdea(0, "I love playing with ball");
     myDogTinaBrain->setIdea(1, "I love eating bananas");
     myDogTina.setBrain(myDogTinaBrain);
-    PRINT_BLUE_BOLD("*** Check Dog Tina 🐶🩷  Brain first and second idea ***");
+    PRINT_BLUE_BOLD("*** Check Dog Tina 🐶💖  Brain first and second idea ***");
     std::cout << myDogTina.getBrain()->getIdea(0) << std::endl;
     std::cout << myDogTina.getBrain()->getIdea(1) << std::endl;
 
@@ -85,9 +86,9 @@ int main(void) {
     std::cout << myDogBillie.getBrain()->getIdea(0) << std::endl;
     std::cout << myDogBillie.getBrain()->getIdea(1) << std::endl;
 
-    PRINT_BLUE_BOLD("*** Assign Operator Tina 🐶🩷  equals Bob 🐶💙 ***");
+    PRINT_BLUE_BOLD("*** Assign Operator Tina 🐶💖  equals Billie 🐶💙 ***");
     myDogTina = myDogBillie;
-    PRINT_BLUE_BOLD("*** Check Dog Tina 🐶🩷  Brain new first and second idea now ***");
+    PRINT_BLUE_BOLD("*** Check Dog Tina 🐶💖 Brain new first and second idea now ***");
     std::cout << myDogTina.getBrain()->getIdea(0) << std::endl;
     std::cout << myDogTina.getBrain()->getIdea(1) << std::endl;
  
