@@ -7,7 +7,7 @@ Ice::Ice(void) : AMateria("ice") {
 
 Ice::Ice(const Ice& copy) : AMateria(copy) {
 
-    std::cout << "Ice: Parameterized Constructor called." << std::endl;
+    std::cout << "Ice: Copy Constructor called." << std::endl;
 
     *this = copy;
 }

@@ -56,26 +56,26 @@ void MateriaSource::learnMateria(AMateria *materia) {
             addListBack(materia);
             _source[i] = materia->clone(); //Copies the Materia passed as a parameter
             std::cout << "Materia " << materia->getType() << " learned." << std::endl;
-            break ;
-        }
-        else if(materia != NULL) {
-            delete materia;
-            materia = NULL;
+            return ;
         }
     }
+    if(materia != NULL) 
+        addListBack(materia);
+    std::cout << "Materia " << materia->getType() << " was not learned." << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type) {
 
     for(int i = 0; i < SOURCE_SIZE; i++) {
         if(_source[i] && _source[i]->getType() == type) {
-            std::cout << "Materia " << type << " created." << std::endl;
             AMateria *address = _source[i]->clone();
+            std::cout << "Materia " << type << " created." << std::endl;
             addListBack(address);
             return (address); 
         }
     }
-    return (0);
+    std::cout << "Materia " << type << " was not created." << std::endl;
+    return (NULL);
 }
 
 t_node *MateriaSource::createNode(AMateria *address) {

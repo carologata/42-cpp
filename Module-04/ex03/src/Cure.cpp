@@ -7,7 +7,7 @@ Cure::Cure(void) : AMateria("cure") {
 
 Cure::Cure(const Cure& copy) : AMateria(copy) {
 
-    std::cout << "Cure: Parameterized Constructor called." << std::endl;
+    std::cout << "Cure: Copy Constructor called." << std::endl;
 
     *this = copy;
 }

@@ -51,20 +51,22 @@ void Character::equip(AMateria* m) {
         if(_inventory[i] == NULL && m != NULL) {
             _inventory[i] = m;
             std::cout << "Character " << _name << " equiped with materia " << m->getType() << std::endl;
-            break ;
+            return ;
         }
     }
+    std::cout << "Character " << _name << " can not equip. Invetory is full." << std::endl;
 }
 
 void Character::unequip(int idx) {
 
     for(int i = 0; i < INVENTORY_SIZE; i++) {
         if(i == idx && _inventory[i]) {
-            std::cout << "Character " << _name << "unequiped with materia " << _inventory[i]->getType() << std::endl;
+            std::cout << "Character " << _name << " unequiped with materia " << _inventory[i]->getType() << std::endl;
             _inventory[i] = NULL;
-            break ;
+            return ;
         }
     }
+    std::cout << "Character " << _name << " can not unequip." << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {
@@ -73,7 +75,8 @@ void Character::use(int idx, ICharacter& target) {
         if(i == idx && _inventory[i]) {
             _inventory[i]->use(target);
             _inventory[i] = NULL;
-            break ;
+            return ;
         }
     }
+    std::cout << "Character " << _name << " does not have materia to use in this index." << std::endl;
 }
