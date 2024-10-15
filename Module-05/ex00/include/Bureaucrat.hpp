@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream> 
 
 #define println(text) std::cout << text << std::endl;
 #define printBlue(text) std::cout << "\033[1;34m" << text << "\033[0m" << std::endl;
@@ -36,3 +37,5 @@ private:
     int                 _grade;
 
 };
+
+std::string to_string(int number);

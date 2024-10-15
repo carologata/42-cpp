@@ -71,3 +71,10 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 
     return ("Bureaucrat: Grade too low.");
 }
+
+std::string to_string(int number) {
+
+    std::stringstream ss;
+    ss << number;
+    return ss.str();
+}
