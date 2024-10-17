@@ -23,7 +23,7 @@ int main(void) {
 
     printBlue("*** Exception Constructor Test ***");
     printBlue("");
-    printBlue("Try to create b4 🟣 with a grade higher than 150");
+    printBlue("Try to create b4 🟣 with a grade lower than 150");
     try {
         Bureaucrat b4("b4", 153);
     } 
@@ -31,7 +31,7 @@ int main(void) {
         println(e.what());
     }
     printBlue("");
-    printBlue("Try to create b4 🟣 with a grade lower than 1");
+    printBlue("Try to create b4 🟣 with a grade higher than 1");
     try {
         Bureaucrat b4("b4", -5);
     }
@@ -61,7 +61,7 @@ int main(void) {
     try {
         b4.decrement();
     } 
-    catch(Bureaucrat::GradeTooLowException& e) {
+    catch(Bureaucrat::GradeTooHighException& e) {
         println(e.what());
     }
     printBlue("*** ***\n");
