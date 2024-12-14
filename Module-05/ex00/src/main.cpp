@@ -4,44 +4,29 @@ int main(void) {
     
     printlnBlue("*** Bureaucrat1: Default constructor ***");
     Bureaucrat bureaucrat1;
-    printlnBlue("name:");
-    println(bureaucrat1.getName());
-    printlnBlue("grade:");
-    println(bureaucrat1.getGrade());
+    std::cout << bureaucrat1 << std::endl;
     printlnBlue("***\n");
 
     printlnBlue("*** Bureaucrat2: Parametrized constructor ***");
     Bureaucrat bureaucrat2("Bureaucrat2", 148);
-    printlnBlue("name:");
-    println(bureaucrat2.getName());
-    printlnBlue("grade:");
-    println(bureaucrat2.getGrade());
+    std::cout << bureaucrat2 << std::endl;
     printlnBlue("***\n");
 
     printlnBlue("*** Bureaucrat3: Parametrized constructor ***");
     Bureaucrat bureaucrat3("Bureaucrat3", 2);
-    printlnBlue("name:");
-    println(bureaucrat3.getName());
-    printlnBlue("grade:");
-    println(bureaucrat3.getGrade());
+    std::cout << bureaucrat3 << std::endl;
     printlnBlue("***\n");
 
     printlnBlue("*** Bureaucrat4: Copy constructor ***");
     Bureaucrat bureaucrat4(bureaucrat3);
-    printlnBlue("name:");
-    println(bureaucrat4.getName());
-    printlnBlue("grade:");
-    println(bureaucrat4.getGrade());
+    std::cout << bureaucrat4 << std::endl;
     printlnBlue("***\n");
 
     printlnBlue("*** Bureaucrat5: Parametrized constructor ***");
     Bureaucrat bureaucrat5("Bureaucrat5", 150);
     printlnBlue("*** Bureaucrat5: Assignment operator ***");
-    bureaucrat5 = bureaucrat4; 
-    printlnBlue("name:"); // The name will not be update, it is const
-    println(bureaucrat5.getName());
-    printlnBlue("grade:");
-    println(bureaucrat5.getGrade());
+    bureaucrat5 = bureaucrat4; // The name will not be update, name is const
+    std::cout << bureaucrat5 << std::endl;
     printlnBlue("***\n");
 
     printlnBlue("*** Burecraut4 ***");

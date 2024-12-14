@@ -1,12 +1,8 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
-
 #include <iostream>
 #include <string>
-#include <exception>
 
 #define println(text) std::cout << text << std::endl;
-#define printlnBlue(text) std::cout << "\033[1;34m" << text << "\033[0m" << std::endl;
+#define printBlue(text) std::cout << "\033[1;34m" << text << "\033[0m" << std::endl;
 
 class Bureaucrat {
 
@@ -18,20 +14,21 @@ public:
     Bureaucrat& operator=(const Bureaucrat& copy);
     ~Bureaucrat(void);
 
-    const std::string     getName(void) const;
-    int                   getGrade(void) const;
+    std::string     getName(void) const;
+    int             getGrade(void) const;
 
-    void                  increment(void);
-    void                  decrement(void);
+    void            increment(void);
+    void            decrement(void);
 
     class GradeTooHighException : public std::exception {
-	public:
-		virtual const char *what() const throw();
-	};
-	class GradeTooLowException : public std::exception{
-	public:
-		virtual const char *what() const throw();
-	};
+        public:
+            virtual const char *what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception {
+        public:
+            virtual const char *what() const throw();
+    };
 
 private:
 
@@ -41,5 +38,3 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& bureaucrat);
-
-#endif
