@@ -1,9 +1,9 @@
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
 
-NAME	=	animal
+NAME	=	bureaucrat
 
-SRCS	=	src/Animal.cpp src/Cat.cpp src/Dog.cpp src/main.cpp src/WrongAnimal.cpp src/WrongCat.cpp
+SRCS	=	src/Bureaucrat.cpp src/main.cpp 
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)
