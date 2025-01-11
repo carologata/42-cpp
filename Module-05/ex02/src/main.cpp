@@ -1,60 +1,130 @@
-#include "../include/Form.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
+#include "../include/RobotomyRequestForm.hpp"
+#include "../include/PresidentialPardonForm.hpp"
 
 int main(void) {
 
-    printlnBlue("*** Form1 grade higher than 1 ***");
+    printlnBlue("*** Bureaucrat 1, 2 and 3 ***");
+    Bureaucrat bureaucrat1("Bureaucrat1", 147);
+    std::cout << bureaucrat1 << std::endl;
+    Bureaucrat bureaucrat2("Bureaucrat2", 24);
+    std::cout << bureaucrat2 << std::endl;
+    Bureaucrat bureaucrat3("Bureaucrat3", 3);
+    std::cout << bureaucrat3 << std::endl;
+    printlnBlue("*** ***");
+
+    printlnBlue("*** ShrubberyCreationForm ***");
+    ShrubberyCreationForm shrubberyCreationForm1("pink");
+    printlnBlue("Bureaucrat1 tries to sign and execute ShrubberyCreationForm");
+    std::cout << bureaucrat1 << std::endl;
+    std::cout << shrubberyCreationForm1 << std::endl;
     try {
-        Form form1("Form1", -5, 10);
-        std::cout << form1 << std::endl;
+        bureaucrat1.signForm(shrubberyCreationForm1);
+        bureaucrat1.executeForm(shrubberyCreationForm1);
     } catch (std::exception &e) {
         println(e.what());
     }
-    printlnBlue("***\n");
-
-    printlnBlue("*** Form2 grade lower than 150 ***");
+    printlnBlue("Bureaucrat2 tries to execute ShrubberyCreationForm (not signed)");
+    std::cout << bureaucrat2 << std::endl;
+    std::cout << shrubberyCreationForm1 << std::endl;
     try {
-        Form form2("Form2", 5, 151);
-        std::cout << form2 << std::endl;
+        bureaucrat2.executeForm(shrubberyCreationForm1);
     } catch (std::exception &e) {
         println(e.what());
     }
-    printlnBlue("***\n");
-
-    printlnBlue("*** Form3 ***");
+    printlnBlue("Bureaucrat2 tries to sign ShrubberyCreationForm");
+    std::cout << bureaucrat2 << std::endl;
+    std::cout << shrubberyCreationForm1 << std::endl;
     try {
-        Form form3("Form3", 5, 10);
-        std::cout << form3 << std::endl;
-
-        printlnBlue("Bureaucrat1 tries to sign Form3");
-        try {
-            Bureaucrat bureaucrat1("Bureaucra1t", 12);
-            std::cout << bureaucrat1 << std::endl;
-            bureaucrat1.signForm(form3);
-        } catch (std::exception &e) {
-            println(e.what());
-        }
-
-        printlnBlue("Bureaucrat2 tries to sign Form3");
-        try {
-            Bureaucrat bureaucrat2("Bureaucrat2", 5);
-            std::cout << bureaucrat2 << std::endl;
-            bureaucrat2.signForm(form3);
-        } catch (std::exception &e) {
-            println(e.what());
-        }
-
-        // More than 1 bureaucrat can sign the same form
-        printlnBlue("Bureaucrat3 tries to sign Form3");
-        try {
-            Bureaucrat bureaucrat3("Bureaucrat3", 1);
-            std::cout << bureaucrat3 << std::endl;
-            bureaucrat3.signForm(form3);
-        } catch (std::exception &e) {
-            println(e.what());
-        }
-
+        bureaucrat2.signForm(shrubberyCreationForm1);
     } catch (std::exception &e) {
         println(e.what());
     }
-    printlnBlue("***\n");
+    printlnBlue("Bureaucrat3 tries to execute ShrubberyCreationForm");
+    std::cout << bureaucrat3 << std::endl;
+    std::cout << shrubberyCreationForm1 << std::endl;
+    try {
+        bureaucrat3.executeForm(shrubberyCreationForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("*** ***");
+    
+    printlnBlue("*** RobotomyRequestForm ***");
+    RobotomyRequestForm robotomyRequestForm1("blue");
+    printlnBlue("Bureaucrat1 tries to sign and execute RobotomyRequestForm");
+    std::cout << bureaucrat1 << std::endl;
+    std::cout << robotomyRequestForm1 << std::endl;
+    try {
+        bureaucrat1.signForm(robotomyRequestForm1);
+        bureaucrat1.executeForm(robotomyRequestForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("Bureaucrat2 tries to execute RobotomyRequestForm (not signed)");
+    std::cout << bureaucrat2 << std::endl;
+    std::cout << robotomyRequestForm1 << std::endl;
+    try {
+        bureaucrat2.executeForm(robotomyRequestForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("Bureaucrat2 tries to sign RobotomyRequestForm");
+    std::cout << bureaucrat2 << std::endl;
+    std::cout << robotomyRequestForm1 << std::endl;
+    try {
+        bureaucrat2.signForm(robotomyRequestForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("Bureaucrat3 tries to execute RobotomyRequestForm");
+    std::cout << bureaucrat3 << std::endl;
+    std::cout << robotomyRequestForm1 << std::endl;
+    try {
+        bureaucrat3.executeForm(robotomyRequestForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("*** ***");
+
+    printlnBlue("*** PresidentialPardonForm ***");
+    PresidentialPardonForm presidentialPardonForm1("yellow");
+    printlnBlue("Bureaucrat1 tries to sign and execute PresidentialPardonForm");
+    std::cout << bureaucrat1 << std::endl;
+    std::cout << presidentialPardonForm1 << std::endl;
+    try {
+        bureaucrat1.signForm(presidentialPardonForm1);
+        bureaucrat1.executeForm(presidentialPardonForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("Bureaucrat2 tries to execute PresidentialPardonForm (not signed)");
+    std::cout << bureaucrat2 << std::endl;
+    std::cout << presidentialPardonForm1 << std::endl;
+    try {
+        bureaucrat2.executeForm(presidentialPardonForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("Bureaucrat2 tries to sign and execute PresidentialPardonForm");
+    std::cout << bureaucrat2 << std::endl;
+    std::cout << presidentialPardonForm1 << std::endl;
+    try {
+        bureaucrat2.signForm(presidentialPardonForm1);
+        bureaucrat2.executeForm(presidentialPardonForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("Bureaucrat3 tries to execute PresidentialPardonForm");
+    std::cout << bureaucrat3 << std::endl;
+    std::cout << presidentialPardonForm1 << std::endl;
+    try {
+        bureaucrat3.executeForm(presidentialPardonForm1);
+    } catch (std::exception &e) {
+        println(e.what());
+    }
+    printlnBlue("*** ***");
+
+    return (0);
 }

@@ -97,4 +97,6 @@ int main(void) {
         println(e.what());
     }
     printlnBlue("***\n");
+
+    return (0);
 }
