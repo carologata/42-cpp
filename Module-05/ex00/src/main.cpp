@@ -3,39 +3,29 @@
 int main(void) {
     
     printlnBlue("*** Bureaucrat1: Default constructor ***");
-    try {
-        Bureaucrat bureaucrat1;
-        std::cout << bureaucrat1 << std::endl;
-    } catch (std::exception &e) {
-        println(e.what());
-    }
+    Bureaucrat bureaucrat1;
+    std::cout << bureaucrat1 << std::endl;
     printlnBlue("***\n");
 
     printlnBlue("*** Bureaucrat2: Parametrized constructor ***");
-    try {
-            Bureaucrat bureaucrat2("Bureaucrat2", 148);
-            std::cout << bureaucrat2 << std::endl;
-            printlnBlue("***\n");
-
-            printlnBlue("*** Burecraut2 ***");
-            printlnBlue("grade:");
-            println(bureaucrat2.getGrade());
-            printlnBlue("Decrement Burecraut2");
-            bureaucrat2.decrement();
-            printlnBlue("grade:");
-            println(bureaucrat2.getGrade());
-            printlnBlue("Decrement Burecraut2");
-            bureaucrat2.decrement();
-            printlnBlue("grade:");
-            println(bureaucrat2.getGrade());
-            printlnBlue("Decrement Burecraut2");
-            bureaucrat2.decrement();
-            printlnBlue("grade:");
-            println(bureaucrat2.getGrade());
-
-    } catch (std::exception &e) {
-        println(e.what());
-    }
+    Bureaucrat bureaucrat2("Bureaucrat2", 148);
+    std::cout << bureaucrat2 << std::endl;
+    printlnBlue("***\n");
+    printlnBlue("*** Burecraut2 ***");
+    printlnBlue("grade:");
+    println(bureaucrat2.getGrade());
+    printlnBlue("Decrement Burecraut2");
+    bureaucrat2.decrement();
+    printlnBlue("grade:");
+    println(bureaucrat2.getGrade());
+    printlnBlue("Decrement Burecraut2");
+    bureaucrat2.decrement();
+    printlnBlue("grade:");
+    println(bureaucrat2.getGrade());
+    printlnBlue("Decrement Burecraut2");
+    bureaucrat2.decrement();
+    printlnBlue("grade:");
+    println(bureaucrat2.getGrade());
     printlnBlue("***\n");
 
     printlnBlue("*** Bureaucrat3: Parametrized constructor ***");

@@ -1,8 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <exception>
 
 #define println(text) std::cout << text << std::endl;
@@ -37,7 +37,6 @@ private:
 
     const std::string   _name;
     int                 _grade;
-
 };
 
 std::ostream& operator<<(std::ostream& COUT, const Bureaucrat& bureaucrat);

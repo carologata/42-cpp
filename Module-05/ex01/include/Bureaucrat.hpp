@@ -1,8 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <exception>
 
 #include "Form.hpp"
