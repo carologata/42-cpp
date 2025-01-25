@@ -1,5 +1,5 @@
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g3 -I include/
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
 
 NAME	=	convert
 
