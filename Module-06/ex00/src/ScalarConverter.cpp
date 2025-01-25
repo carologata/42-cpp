@@ -16,13 +16,46 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& copy) {
 ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(std::string parameter) {
-    
-    
+
+    bool    isConvertable         = false;
+    double  firstConvertableValue = 0.0;
+
+    if (isChar(parameter)) {
+        isConvertable = true;
+        firstConvertableValue = parameter[0];
+        std::cout << "Type char detected." << std::endl;
+    }
+    else if(isInt(parameter)) {
+        isConvertable = true;
+        firstConvertableValue = atoi(parameter.c_str());
+        std::cout << "Type int detected." << std::endl;
+    }
+    else if(isFloat(parameter)) {
+        isConvertable = true;
+        firstConvertableValue = strtof(parameter.c_str(), NULL);
+        std::cout << "Type float detected." << std::endl;
+    }
+    else if(isDouble(parameter)) {
+        isConvertable = true;
+        firstConvertableValue = strtod(parameter.c_str(), NULL);
+        std::cout << "Type double detected." << std::endl;
+    }
+    else {
+        std::cout << "Error: type conversion is impossible." << std::endl;
+        return;
+    }
+
+    if(isConvertable) {
+        safeConverterChar(firstConvertableValue);
+        safeConverterInt(firstConvertableValue);
+        safeConverterFloat(firstConvertableValue);
+        safeConverterDouble(firstConvertableValue);
+    }
 }
 
 bool isChar(std::string parameter) {
     
-    if (parameter.length() == 1 && isprint(parameter[0]) && !isdigit(parameter[0])) {
+    if (parameter.length() == 1 && !isdigit(parameter[0])) {
         return (true);
     }
     return (false);
@@ -31,10 +64,10 @@ bool isChar(std::string parameter) {
 bool isInt(std::string parameter) {
 
     char *end;
-    long int result = std::strtol(parameter.c_str(), &end, 10);
+    long int result = strtol(parameter.c_str(), &end, 10);
 
-    if(result > INT_MAX \
-        || result < INT_MIN \
+    if(result > std::numeric_limits<int>::max()\
+        || result < std::numeric_limits<int>::min() \
         || end == parameter.c_str() \
         || *end != '\0') {
             return (false);
@@ -71,7 +104,7 @@ bool isDouble(std::string parameter) {
         return (true);
     }
 
-    double result = strtod(parameter.c_str(), &end);
+    strtod(parameter.c_str(), &end);
 
     if(errno == ERANGE \
         || end == parameter.c_str() \
@@ -80,4 +113,3 @@ bool isDouble(std::string parameter) {
     }
     return (true);
 }
-

@@ -1,10 +1,9 @@
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g3 -I include/
 
-NAME	=	form
+NAME	=	convert
 
-SRCS	=	src/Bureaucrat.cpp src/Intern.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp \
-			src/RobotomyRequestForm.cpp src/PresidentialPardonForm.cpp src/main.cpp
+SRCS	=	src/ScalarConverter.cpp src/SafeConverter.cpp src/main.cpp 
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)

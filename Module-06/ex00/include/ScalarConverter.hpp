@@ -2,8 +2,12 @@
 #define SCALARCONVERTER_HPP
 
 #include <string>
-#include <climits>
 #include <limits>
+#include <iostream>
+#include <cerrno>
+#include "SafeConverter.hpp"
+
+#define printlnBlue(text) std::cout << "\033[1;34m" << text << "\033[0m" << std::endl;
 
 class ScalarConverter {
     
@@ -16,5 +20,10 @@ public:
 
     static void convert(std::string parameter);
 };
+
+bool isChar(std::string parameter);
+bool isInt(std::string parameter);
+bool isFloat(std::string parameter);
+bool isDouble(std::string parameter);
 
 #endif
