@@ -1,24 +1,4 @@
-#include "../include/ScalarConverter.hpp"
-
-int main(int argc, char **argv) {
-    
-    if(argc == 2) {
-
-        if(argv[1][0] == '\0') {
-            std::cout << "Error: invalid input." << std::endl;
-            return (1);
-        }
-        ScalarConverter::convert(argv[1]);
-        return (0);
-    }
-    else {
-        std::cout << "Error: invalid number of arguments." << std::endl;
-        return (1);
-    }
-}
-
-
-/* #!/bin/bash
+#!/bin/bash
 
 echo "Test for General"
 ./convert # invalid number of arguments.
@@ -91,4 +71,4 @@ echo "***"
 ./convert "+inf"; # +inf
 echo "***"
 ./convert "-inf"; # -inf
-echo "***" */
+echo "***"
