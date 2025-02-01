@@ -55,7 +55,7 @@ void ScalarConverter::convert(std::string parameter) {
 
 bool isChar(std::string parameter) {
     
-    if (parameter.length() == 1 && !isdigit(parameter[0])) {
+    if (parameter.length() == 1 && isprint(parameter[0]) && !isdigit(parameter[0])) {
         return (true);
     }
     return (false);

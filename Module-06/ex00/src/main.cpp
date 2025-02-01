@@ -17,7 +17,6 @@ int main(int argc, char **argv) {
     }
 }
 
-
 /* #!/bin/bash
 
 echo "Test for General"
@@ -35,14 +34,14 @@ echo "***"
 echo "***"
 ./convert "42.42a"; # type conversion is impossible.
 echo "***"
-./convert "nan"; # impossible, nanf and nan
+./convert "\a"; # Impossible
 echo "***"
 echo ""
 
 echo "Test for Char"
-./convert "a"; # 'a'
+./convert " "; # ' '
 echo "***"
-./convert "\a"; # Non displayable
+./convert "a"; # 'a'
 echo "***"
 ./convert "7"; # Non displayable
 echo "***"
@@ -78,8 +77,6 @@ echo "***"
 echo "***"
 ./convert "a"; # 97.0f
 echo "***"
-./convert "\a"; # 7.0f
-echo "***"
 ./convert "-42"; # -42.0f
 echo "***"
 ./convert "-42.42"; # -42.42f
@@ -91,4 +88,8 @@ echo "***"
 ./convert "+inf"; # +inf
 echo "***"
 ./convert "-inf"; # -inf
+echo "***"
+./convert "nan"; # impossible, nanf and nan
+echo "***"
+./convert "nanf"; # impossible, nanf and nan
 echo "***" */
