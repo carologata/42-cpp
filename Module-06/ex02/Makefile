@@ -1,9 +1,9 @@
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I include/
 
-NAME	=	serialization
+NAME	=	type
 
-SRCS	=	src/Serializer.cpp src/main.cpp
+SRCS	=	src/Functions.cpp src/main.cpp
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)

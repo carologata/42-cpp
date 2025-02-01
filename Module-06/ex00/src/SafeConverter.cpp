@@ -1,5 +1,9 @@
 #include "../include/SafeConverter.hpp"
 
+/* Static Cast: This is the simplest type of cast that can be used. It is a compile-time cast. 
+It does things like implicit conversions between types (such as int to float, or pointer to void*), 
+and it can also call explicit conversion functions (or implicit ones). */
+
 void safeConverterChar(double firstConvertableValue) {
 
     if(firstConvertableValue >= 0 && firstConvertableValue <= 127) {
