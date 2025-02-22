@@ -50,6 +50,7 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "numbers": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "list": "cpp"
     }
 }

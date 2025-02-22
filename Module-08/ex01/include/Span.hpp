@@ -16,7 +16,7 @@ public:
     Span& operator=(Span const& copy);
     ~Span();
 
-    class SpanExceptionFull : public std::exception {
+    class SpanExceptionNoSpace: public std::exception {
     public:
         virtual const char* what() const throw();
     };
@@ -25,10 +25,10 @@ public:
         virtual const char* what() const throw();
     };
 
-    void                addNumber(int number)      throw(SpanExceptionFull);
+    void                addNumber(int number)      throw(SpanExceptionNoSpace);
     int                 shortestSpan()             throw(SpanExceptionNoNumber);
     int                 longestSpan()              throw(SpanExceptionNoNumber);
-    void                fillSpan(int nRandNumbers) throw(Span::SpanExceptionFull);
+    void                fillSpan(int nRandNumbers) throw(Span::SpanExceptionNoSpace);
     std::vector<int>    getVector(void) const;
 
 private:

@@ -18,10 +18,10 @@ Span& Span::operator=(Span const& copy) {
 
 Span::~Span() {};
 
-void Span::addNumber(int number) throw (Span::SpanExceptionFull) {
+void Span::addNumber(int number) throw (Span::SpanExceptionNoSpace) {
 
     if (this->_vector.size() >= this->_n)
-        throw Span::SpanExceptionFull();
+        throw Span::SpanExceptionNoSpace();
     this->_vector.push_back(number);
 }
 
@@ -51,10 +51,10 @@ int Span::longestSpan() throw (Span::SpanExceptionNoNumber) {
     return longest;
 }
 
-void Span::fillSpan(int nRandNumbers) throw (Span::SpanExceptionFull) {
+void Span::fillSpan(int nRandNumbers) throw (Span::SpanExceptionNoSpace) {
 
     if(this->_vector.size() + nRandNumbers > this->_n)
-        throw Span::SpanExceptionFull();
+        throw Span::SpanExceptionNoSpace();
     
     srand(time(NULL));
     
@@ -67,9 +67,9 @@ std::vector<int> Span::getVector(void) const {
     return this->_vector;
 }
 
-const char* Span::SpanExceptionFull::what() const throw() {
+const char* Span::SpanExceptionNoSpace::what() const throw() {
 
-    return "SpanException: vector full";
+    return "SpanException: no space in the vector";
 }
 
 const char* Span::SpanExceptionNoNumber::what() const throw() {

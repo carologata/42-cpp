@@ -7,15 +7,18 @@
 #include <deque>
 
 template <typename T>
-int easyfind(T& container, int target) throw(std::exception)
+typename T::iterator easyfind(T& container, int target) throw(std::exception)
 {
     typename T::iterator it = std::find(container.begin(), container.end(), target);
     if (it == container.end())
         throw std::exception();
-    return std::distance(container.begin(), it);
+    return (it);
 }
 
 #endif
+
+/* An iterator in C++ is an abstract mechanism that provides a way to traverse through a container's 
+elements without exposing its internal structure. */
 
 /* In C++, vector is a dynamic array with the ability to resize itself automatically when an element 
 is inserted or deleted. It is the part Standard Template Library (STL) */
