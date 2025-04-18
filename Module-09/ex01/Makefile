@@ -1,9 +1,9 @@
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -g3 -std=c++98 -I include/
 
-NAME	=	btc
+NAME	=	RPN
 
-SRCS	=	src/main.cpp src/BitcoinExchange.cpp
+SRCS	=	src/main.cpp src/RPN.cpp
 OBJ		=	./obj
 OBJS	=	$(addprefix $(OBJ)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard include/*.hpp)

@@ -28,7 +28,7 @@ public:
     void                addNumber(int number)      throw(SpanExceptionNoSpace);
     int                 shortestSpan()             throw(SpanExceptionNoNumber);
     int                 longestSpan()              throw(SpanExceptionNoNumber);
-    void                fillSpan(int nRandNumbers) throw(Span::SpanExceptionNoSpace);
+    void                fillSpan(int nRandNumbers) throw(SpanExceptionNoSpace);
     std::vector<int>    getVector(void) const;
 
 private:
