@@ -1,12 +1,12 @@
 #include "../include/PmergeMe.hpp"
 
-int PmergeMe::compareCounter = 0;
+
 std::size_t PmergeMe::_jacobsthalNumbers[62] = {0};
 
 PmergeMe::PmergeMe(void) {}
 
-PmergeMe::PmergeMe(const PmergeMe &src) {     
-    (void) src; 
+PmergeMe::PmergeMe(PmergeMe const &copy) {     
+    (void) copy; 
 }
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& copy) {  
@@ -155,13 +155,11 @@ std::size_t PmergeMe::getJacobsthalNum(std::size_t index) {
 
 void PmergeMe::mergeInsertSortVector(std::vector<int>& vec) {
     
-    compareCounter = 0;
     mergeInsertionSort<std::vector<int>, std::vector<std::vector<int>::iterator> >(vec, 1);
 }
 
 void PmergeMe::mergeInsertSortDeque(std::deque<int>& deque) {
     
-    compareCounter = 0;
     mergeInsertionSort<std::deque<int>, std::deque<std::deque<int>::iterator> >(deque, 1);
 }
 

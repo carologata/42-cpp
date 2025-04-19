@@ -12,14 +12,12 @@ class PmergeMe {
 public:
 
     PmergeMe(void);
-    PmergeMe(const PmergeMe &src);
+    PmergeMe(PmergeMe const &copy);      
     PmergeMe &operator=(const PmergeMe &copy);
     ~PmergeMe(void);
 
     void mergeInsertSortVector(std::vector<int>& vec);
     void mergeInsertSortDeque(std::deque<int>& deque);
-
-    static int compareCounter;
 
 private:
 

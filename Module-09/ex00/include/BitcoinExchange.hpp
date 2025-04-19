@@ -2,6 +2,7 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <sys/stat.h>
 #include <sstream>
 #include <fstream>
 #include <string>

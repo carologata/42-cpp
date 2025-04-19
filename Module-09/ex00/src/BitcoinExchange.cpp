@@ -17,19 +17,28 @@ BitcoinExchange::~BitcoinExchange() {}
 
 bool BitcoinExchange::validateFile(std::string& filename) {
 
+    struct stat pathStat;
+    if (stat(filename.c_str(), &pathStat) != 0) {
+        std::cerr << "Error: file does not exist."  << std::endl;
+        return false;
+    }
+    if (!S_ISREG(pathStat.st_mode)) {
+        std::cerr << "Error: it is not a regular file." << std::endl;
+        return false;
+    }
     size_t dotPos = filename.find_last_of(".");
     if (dotPos == std::string::npos || (filename.substr(dotPos) != ".csv" && filename.substr(dotPos) != ".txt") ) {
-        std::cerr << "Error: Invalid extension." << std::endl;
+        std::cerr << "Error: invalid extension." << std::endl;
         return false;
     }
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {
-        std::cerr << "Error: Cannot open file " << filename << "." << std::endl;
+        std::cerr << "Error: cannot open file." << std::endl;
         return false;
     }
     std::string line;
     if (!std::getline(file, line)) {
-        std::cerr << "Error: File is empty or unreadable." << std::endl;
+        std::cerr << "Error: file is empty or unreadable." << std::endl;
         return false;
     }
     file.close();
@@ -48,6 +57,8 @@ bool BitcoinExchange::validateDate(std::string& date) const {
 
 	if(ss.fail() || delimiter1 != '-' || delimiter2 != '-' || day < 1 || month < 1 || month > 12 || year < 0) 
 		return false;
+    if((year == 2009 && month == 1 && day < 2) || (year == 2022 && month == 3 && day > 29)) 
+        return false;
     if(year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1)
         return false;
     if (month == 2) { 
@@ -84,7 +95,7 @@ void BitcoinExchange::setDataBase(std::string filename) {
         return ;
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {
-        std::cerr << "Error: Cannot open file " << filename << "." << std::endl;
+        std::cerr << "Error: cannot open file." << std::endl;
         return;
     }
     std::getline(file, line);
@@ -92,17 +103,13 @@ void BitcoinExchange::setDataBase(std::string filename) {
         dotPos = line.find(',');
         date = line.substr(0, dotPos);
         if(!validateDate(date)) {
-            std::cerr << "Error: Invalid date." << std::endl;
+            std::cerr << "Error: invalid date." << std::endl;
             return ;
         }
         newLinePos = line.find('\n');
         strValue = line.substr(dotPos + 1, newLinePos);
         std::istringstream valueStream(strValue); 
         valueStream >> floatValue;
-        if(!validateValue(floatValue)) {
-            std::cerr << "Error: Invalid value." << std::endl;
-            return ;
-        }
         _dataBase[date] = floatValue;
     }
 }
@@ -120,6 +127,11 @@ void BitcoinExchange::setDataFile(std::string filename) {
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {
         std::cerr << "Error: Cannot open file " << filename << "." << std::endl;
+        return ;
+    }
+    std::getline(file, line);
+    if (line != "date | value") {
+        std::cout << "Error: Invalid header." << std::endl;
         return ;
     }
     while (std::getline(file, line)) {
@@ -140,7 +152,7 @@ void BitcoinExchange::setDataFile(std::string filename) {
         strValue = line.substr(pipePos + 2); 
         std::istringstream valueStream(strValue);
         valueStream >> floatValue;
-        if(!validateValue(floatValue)) {
+        if(!validateValue(floatValue) || !valueStream.eof()) {
             std::cout << "Error: Invalid value." << std::endl;
             continue ;
         }
@@ -161,5 +173,5 @@ void BitcoinExchange::exchange(std::string date, float value) {
     if (it->first != date) 
         --it;
     result = it->second * value;
-    std::cout << it->first << " => " << value << " = " << result << std::endl;
+    std::cout << date << " => " << value << " = " << result << std::endl;
 }
