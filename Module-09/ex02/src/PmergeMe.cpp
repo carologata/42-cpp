@@ -23,8 +23,7 @@ void PmergeMe::mergeInsertionSort(Container& container, int pairSize) {
     Sequence pend;
     std::size_t pendElemInserted;
 
-    createPairs<Container, Sequence>(container, pairSize);
-    mergeInsertionSort<Container, Sequence>(container, pairSize * 2);    
+    createPairs<Container, Sequence>(container, pairSize);    
     initializeMainAndPend<Container, Sequence>(container, main, pend, pairSize);
     pendElemInserted = jacobsthalInsertion<Container, Sequence>(main, pend);
     insertLeftOverElem<Container, Sequence>(container, main, pend, pairSize, pendElemInserted);
@@ -54,6 +53,7 @@ void PmergeMe::createPairs(Container& container, int pairSize) {
             swapPairs(firstPairEndPos, pairSize);
         }
     }
+    mergeInsertionSort<Container, Sequence>(container, pairSize * 2);
 }
 
 template <typename Container, typename Sequence>
@@ -64,7 +64,7 @@ void PmergeMe::initializeMainAndPend(Container& container, Sequence& main, Seque
     int numOfGroups = container.size() / pairSize;
 
     for (int i = 0; i < numOfGroups; i++) {
-        CIterator lastPairPos  = getPairMovePos(container.begin(), (numOfGroups * i) + pairSize - 1);
+        CIterator lastPairPos  = getPairMovePos(container.begin(), (pairSize * i) + pairSize - 1);
         if (i == 0 || i % 2 == 1) {
             main.push_back(lastPairPos);
         } else {
