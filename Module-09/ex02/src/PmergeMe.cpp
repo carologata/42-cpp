@@ -169,9 +169,9 @@ template <typename Iterator>
 void swapPairs(Iterator firstPairEndPos, int pairSize) {
     
     Iterator firstPairBeginPos  = getPairMovePos(firstPairEndPos, -pairSize + 1);
-    Iterator secondPairBeginPos = getPairMovePos(firstPairEndPos, pairSize);
+    Iterator secondPairBeginPos = getPairMovePos(firstPairBeginPos, pairSize);
 
-    while (firstPairBeginPos < secondPairBeginPos) {
+    while (firstPairBeginPos != secondPairBeginPos) {
         std::iter_swap(firstPairBeginPos, getPairMovePos(firstPairBeginPos, pairSize));
         firstPairBeginPos++;
     }

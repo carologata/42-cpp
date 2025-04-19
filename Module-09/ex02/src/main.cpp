@@ -34,6 +34,15 @@ void printContainer(Container& container) {
     std::cout << std::endl;
 }
 
+// int max_comparisons(int n) {
+//     int sum = 0;
+//     for (int k = 1; k <= n; ++k) {
+//         double value = (3.0 / 4.0) * k;
+//         sum += static_cast<int>(ceil(log2(value)));
+//     }
+//     return sum;
+// }
+
 void mergeInsertSortAndDisplay(PmergeMe &mergeContainer, std::vector<int> &vec, std::deque<int> &deq) {
 
     std::cout << "Before: ";
@@ -53,7 +62,7 @@ void mergeInsertSortAndDisplay(PmergeMe &mergeContainer, std::vector<int> &vec, 
     printContainer(vec);
 
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << vec_time << " us\n";
-    std::cout << "Time to process a range of " << deq.size() << " elements with std::deque  : " << deq_time << " us\n";
+    std::cout << "Time to process a range of " << deq.size() << " elements with std::deque  : " << deq_time << " us\n"; 
 }
 
 int main(int argc, char** argv) {
@@ -72,6 +81,8 @@ int main(int argc, char** argv) {
 
     PmergeMe mergeContainer;
     mergeInsertSortAndDisplay(mergeContainer, vec, deq);
+
+    // std::cout << "Number of comparisons: " << PmergeMe::compareCounter << std::endl;
     
     return (0);
 }
